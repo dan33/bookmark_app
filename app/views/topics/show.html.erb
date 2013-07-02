@@ -1,0 +1,22 @@
+<div class="row-fluid content">
+  <div class="container">
+    <h2><%= @topic.name %></h2>
+    <p><%= @topic.description %></p>
+  </div>
+
+  <div class="container">
+    <% @topic.items.each do |item| %>
+    <div class="span4 well">
+      <i class="icon-edit pull-right"><%= link_to 'Edit', edit_item_path(item) %> </i>
+        <h4><%= link_to item.title, item.url %></h4>
+        <p><%= item.description %></p>
+    </div>
+    <% end %>
+  </div>
+
+  <%= link_to 'Edit topic', edit_topic_path(@topic), :class => 'btn btn-primary'%>
+  <%= link_to 'Cancel', topics_path, :class => 'btn' %>
+</div>
+
+
+

@@ -1,0 +1,15 @@
+<div class="row-fluid content">
+  <h4><%= @link.title %></h4>
+    <div class="container">
+    	<div class="well span4">
+      	<p><%= @link.url %></p>
+      </div>
+      <div class="well span4">
+      	<p><%= @link.description %></p>
+    	</div>
+    </div>
+  <%= link_to 'Edit link', edit_link_path(@link), :class => 'btn btn-primary'%>
+  <%= link_to 'Cancel', links_path, :class => 'btn' %>
+</div>
+
+

@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="span9">
+	  <h3> Topics </h3>
+		<%= link_to 'New topic', new_topic_path(@topic), :class => 'btn btn-primary'%>
+  </div>
+</div>
+
+  <br />
+
+  <div class="row-fluid">
+  <% @topics.each do |topic| %>
+	  <div class="span4 well">
+      <i class="icon-edit pull-right"><%= link_to 'Edit', edit_topic_path(topic) %> </i>
+	      <h4><%= link_to topic.name, topic_path(topic) %></h4>
+      	<p><%= topic.description %></p>
+    </div>
+  <% end %>
+  </div>
+
+  <%= will_paginate @topics, :renderer => BootstrapPagination::Rails %>
+</div>
