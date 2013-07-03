@@ -18,7 +18,7 @@ end
 
 group :production do
   gem 'pg', "~> 0.15.1"
-  gem 'unicorn'
+  gem 'thin'
   gem 'simple_form'
   gem 'twitter-bootstrap-rails'
   gem 'will_paginate-bootstrap'
