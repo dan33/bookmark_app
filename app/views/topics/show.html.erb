@@ -4,14 +4,14 @@
     <p><%= @topic.description %></p>
   </div>
 
-  <div class="container">
-    <% @topic.items.each do |item| %>
+  <% @topic.items.each do |item| %>
+  <div class="row-fluid">
     <div class="span4 well">
       <i class="icon-edit pull-right"><%= link_to 'Edit', edit_item_path(item) %> </i>
         <h4><%= link_to item.title, item.url %></h4>
-        <p><%= item.description %></p>
+        <p><%= truncate(item.description, length: 75) %></p>
     </div>
-    <% end %>
+  <% end %>
   </div>
 
   <%= link_to 'Edit topic', edit_topic_path(@topic), :class => 'btn btn-primary'%>
