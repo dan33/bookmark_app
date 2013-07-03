@@ -20,11 +20,11 @@ group :production do
   gem 'pg', "~> 0.15.1"
   gem 'thin'
   gem 'simple_form'
+  gem 'friendly_id'
   gem 'twitter-bootstrap-rails'
   gem 'will_paginate-bootstrap'
   gem "will_paginate", "~> 3.0.4"
   gem 'jquery-rails'
-  gem 'google-analytics-rails'
 end
 
 group :assets do
