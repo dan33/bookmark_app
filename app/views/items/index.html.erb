@@ -1,20 +1,18 @@
 <div class="container">
   <div class="span9">
 	  <h1> Links </h1>
-			<%= link_to 'New item', new_item_path(@item), :class => 'btn btn-primary'%>
+			<p><%= link_to 'New item', new_item_path(@item), :class => 'btn btn-primary'%></p>
   </div>
 </div>
 
-  <br />
-
-  <div class="row-fluid">
   <% @items.each do |item| %>
+  <div class="row-fluid">
 	  <div class="span4 well">
       <i class="icon-edit pull-right"><%= link_to 'Edit', edit_item_path(item) %> </i>
 	      <h4><%= link_to item.title, item.url %></h4>
       	<p><%= item.description %></p>
     </div>
-    <% end %>
+  <% end %>
   </div>
 
   <%= will_paginate @items, :renderer => BootstrapPagination::Rails %>
