@@ -9,7 +9,7 @@
 #  author      :string(255)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  topic_id    :topic_name
+#  topic_id    :integer
 #  slug        :string(255)
 #
 

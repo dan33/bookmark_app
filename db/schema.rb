@@ -11,10 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130703002839) do
+ActiveRecord::Schema.define(:version => 20130702235821) do
 
-# Could not dump table "items" because of following StandardError
-#   Unknown type 'topic_name' for column 'topic_id'
+  create_table "items", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "description"
+    t.string   "author"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "topic_id"
+    t.string   "slug"
+  end
+
+  add_index "items", ["slug"], :name => "index_items_on_slug"
 
   create_table "topics", :force => true do |t|
     t.string   "name"
