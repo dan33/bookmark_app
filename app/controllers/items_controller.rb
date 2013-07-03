@@ -10,6 +10,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @commentable = @item
+    @comments = @commentable.comments
+    @comment = Comment.new
 
     respond_to do |format|
       format.html # show.html.erb

@@ -1,15 +1,14 @@
-<div class="row-fluid content">
-  <h4><%= @link.title %></h4>
-    <div class="container">
-    	<div class="well span4">
-      	<p><%= @link.url %></p>
-      </div>
-      <div class="well span4">
-      	<p><%= @link.description %></p>
-    	</div>
-    </div>
-  <%= link_to 'Edit link', edit_link_path(@link), :class => 'btn btn-primary'%>
-  <%= link_to 'Cancel', links_path, :class => 'btn' %>
-</div>
+  <div class="span6 well">
+    <h4><%= link_to @item.title, @item.url %></h4>
+    <p><%= @item.description %></p>
+    <%= link_to 'Edit link', edit_item_path(@item), :class => 'btn btn-small btn-primary'%>
+    <%= link_to 'Cancel', items_path, :class => 'btn btn-small btn-primary' %>
+  </div>
 
+  <div class="span4">
+    <h4>Comments</h4>
+    <%= render "comments/comments" %>
+    <%= render "comments/form" %>
+  </div>
+</div>
 
