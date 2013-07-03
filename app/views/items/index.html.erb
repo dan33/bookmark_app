@@ -14,7 +14,8 @@
 	      <h4><%= link_to item.title, item.url %></h4>
       	<p><%= item.description %></p>
     </div>
+    <% end %>
   </div>
- 	<% end %>
+
   <%= will_paginate @items, :renderer => BootstrapPagination::Rails %>
 </div>

@@ -1,10 +1,10 @@
 <%= simple_form_for @item do |f| %>
 <%= f.error_notification %>
 <div class="form-inputs">
-  <%= f.input :title, label: false, :required => true, :as => :text, :input_html => { placeholder: "Title", :rows => 1, :min => 10, :maxlength => 450, :class => "span5"} %>
-  <%= f.input :url, label: false, :required => true, :as => :text, :input_html => { placeholder: "URL", :rows => 1, :maxlength => 450, :class => "span5"} %>
-  <%= f.input :description, label: false, :required => true, :as => :text, :input_html => { placeholder: "Description", :rows => 3, :maxlength => 450, :class => "span5" } %>
-  <%= f.input :topic_id, label: false, :required => true, :as => :text, :input_html => { placeholder: "Topic", :rows => 1, :maxlength => 450, :class => "span5" } %>
+  <%= f.input :title, label: false, :required => true, :as => :text, :input_html => { placeholder: "Title", :rows => 1, :min => 10, :maxlength => 450, :class => "span12"} %>
+  <%= f.input :url, label: false, :required => true, :as => :text, :input_html => { placeholder: "URL", :rows => 1, :maxlength => 450, :class => "span12"} %>
+  <%= f.input :description, label: false, :required => true, :as => :text, :input_html => { placeholder: "Description", :rows => 3, :maxlength => 450, :class => "span12" } %>
+  <%= f.input :topic_id, label: false, :required => true, :as => :text, :input_html => { placeholder: "Topic", :rows => 1, :maxlength => 450, :class => "span12" } %>
   <% f.error :base %>
 </div>
 

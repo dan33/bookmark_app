@@ -3,6 +3,21 @@
   <p class="lead"> A place to save and organise all of your bookmarks into topics.</p>
 </div>
 
+<div class="span8">
+  <div class="span4">
+    <h4>Topics</h4>
+    <% @topics.each do |topic| %>
+    <p><%= link_to topic.name, topic_path(topic) %></p>
+    <% end %>
+  </div>
+  <div class="span4">
+    <h4>Links</h4>
+    <% @items.each do |item| %>
+    <p><%= link_to item.title, item.url %></p>
+    <% end %>
+  </div>
+</div>
+
 <div class="span3 well">
   <h4>Topics</h4>
   <p> Links are organised into topics. You can create a topic and then add links to it, or you can add links to an existing topic. </p>
