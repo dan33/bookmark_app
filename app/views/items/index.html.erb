@@ -10,7 +10,7 @@
 	  <div class="span4 well">
       <i class="icon-edit pull-right"><%= link_to 'Edit', edit_item_path(item) %> </i>
 	      <h4><%= link_to item.title, item.url %></h4>
-      	<p><%= truncate(item.description, length: 75) %></p>
+      	<p><%= truncate(item.description, length: 95) %></p>
         <p><%= link_to 'comments', item_path(item) %> <span class="label label-warning"><%= item.comments.count %></span></p>
     </div>
   <% end %>
