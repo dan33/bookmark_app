@@ -6,14 +6,16 @@
 <div class="span8">
   <div class="span4">
     <h4>Topics</h4>
+    <p><a href="#topicModal" role="button" class="btn btn-mini btn-primary" data-toggle="modal">New topic</a></p>
     <% @topics.each do |topic| %>
-    <p><%= link_to topic.name, topic_path(topic) %></p>
+    <p><%= link_to topic.name, topic_path(topic) %> <span class="label label-warning"><%= topic.items.count %></span></p>
     <% end %>
   </div>
   <div class="span4">
     <h4>Links</h4>
+    <p><a href="#itemModal" role="button" class="btn btn-mini btn-primary" data-toggle="modal">New link</a></p>
     <% @items.each do |item| %>
-    <p><%= link_to item.title, item.url %></p>
+    <p><%= link_to item.title, item_path(item) %></p>
     <% end %>
   </div>
 </div>
@@ -21,8 +23,29 @@
 <div class="span3 well">
   <h4>Topics</h4>
   <p> Links are organised into topics. You can create a topic and then add links to it, or you can add links to an existing topic. </p>
-  <a class="btn btn-mini btn-danger" href="/topics">View topics </a>
+  <a class="btn btn-mini btn-primary" href="/topics">View topics </a>
   <h4>Links</h4>
   <p> You can view a feed of all links if you're interested in just seeing the latest stuff. </p>
-  <a class="btn btn-mini btn-danger" href="/items">View links </a>
+  <a class="btn btn-mini btn-primary" href="/items">View links </a>
+</div>
+
+<!-- Modal -->
+<div id="itemModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="itemModalLabel">New link</h3>
+  </div>
+  <div class="modal-body">
+    <p><%= render 'items/form' %></p>
+  </div>
+</div>
+
+<div id="topicModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="topicModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="topicModalLabel">New topic</h3>
+  </div>
+  <div class="modal-body">
+    <p><%= render 'topics/form' %></p>
+  </div>
 </div>
