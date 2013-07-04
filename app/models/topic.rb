@@ -1,6 +1,8 @@
 class Topic < ActiveRecord::Base
   attr_accessible :author, :description, :name
   has_many :items
+  belongs_to :user
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 

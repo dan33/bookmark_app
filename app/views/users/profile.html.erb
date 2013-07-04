@@ -1,0 +1,12 @@
+<div class="row-fluid content">
+  <div class="container">
+    <h2><%= current_user.name %></h2>
+    <p>Created <%= current_user.topics.count %> topics</p>
+    <p>Posted <%= current_user.items.count %> links</p>
+    <p>Posted <%= current_user.comments.count %> comments</p>
+    <p>Belongs to <%= current_user.memberships.count %> group</p>
+  </div>
+</div>
+
+
+

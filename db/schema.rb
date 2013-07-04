@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704051237) do
+ActiveRecord::Schema.define(:version => 20130704061151) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(:version => 20130704051237) do
   end
 
   add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "items", :force => true do |t|
     t.string   "title"
@@ -35,6 +42,13 @@ ActiveRecord::Schema.define(:version => 20130704051237) do
   end
 
   add_index "items", ["slug"], :name => "index_items_on_slug"
+
+  create_table "memberships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "topics", :force => true do |t|
     t.string   "name"
@@ -60,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20130704051237) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
