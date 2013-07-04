@@ -6,7 +6,7 @@
         <div class="nav-collapse collapse" id="nav-collapse-02">
           <ul class="nav pull-right">
             <% if user_signed_in? %>
-              <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "<i class='icon-home'></i> #{current_user.username}".html_safe, root_url %></li>
+              <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "<i class='icon-home'></i> #{current_user.name}".html_safe, root_url %></li>
               <li class="<%= 'active' if current_page?(topics_path) %>"><%= link_to "Topics", topics_path %></li>
               <li class="<%= 'active' if current_page?(items_path) %>"><%= link_to "Links", items_path %></li>
               <li class="<%= 'active' if current_page?(edit_user_registration_path) %>"><%= link_to 'Settings', edit_user_registration_path %></li>

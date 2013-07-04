@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id])
+    @group = Group.find(1)
     @topics = Topic.all
     @items = Item.all
   end

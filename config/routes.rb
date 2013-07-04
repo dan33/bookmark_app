@@ -11,7 +11,7 @@ Bookmark::Application.routes.draw do
 end
 
   get '/users' => 'users#index'
-  gets '/users/:id' => 'users#show'
+  get '/users/:id' => 'users#show'
   resources :topics
   resources :items do
     resources :comments

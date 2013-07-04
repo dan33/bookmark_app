@@ -1,14 +1,19 @@
-<h2>Sign in</h2>
+<h3>Sign in</h3>
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
   <div class="form-inputs">
-    <%= f.input :email, :required => false, :autofocus => true %>
-    <%= f.input :password, :required => false %>
-    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+    <%= f.input :email, label: false, :required => true, :autofocus => true, :input_html => { placeholder: "Email", :class => "span4" } %>
+    <%= f.input :password, label: false, :required => true, :input_html => { placeholder: "Password", :class => "span4" } %>
+    <% if devise_mapping.rememberable? -%>
+    <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
+    <% end -%>
+    <% f.error :base %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign in" %>
+  <div class="actions">
+    <%= f.button :submit, "Sign in", :class => 'btn btn-primary' %>
   </div>
 <% end %>
 

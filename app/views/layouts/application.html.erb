@@ -10,15 +10,16 @@
 
   <div class="row-fluid">
     <header class="navbar">
-    <%= render 'layouts/navigation' %>
-  </header>
-  <div class="container">
+      <%= render 'layouts/navigation' %>
+    </header>
+  </div>
+
+  <div class="container-fluid">
     <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, id: "flash_#{name}" %>
     <% end %>
 
     <%= yield %>
-  </div>
   </div>
 
 </body>

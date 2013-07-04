@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Group.create(:name => "WDI Sydney", :description => "Tools and resources for WDI Sydney")
+Membership.create(:user_id => 1, :group_id => 1)

@@ -1,42 +1,23 @@
-<div class="span8">
+<div class="container-fluid">
+<div class="span12">
   <h1> WDI Learn to Code </h1>
-  <p class="lead"> A place to save and organise useful coding resources.</p>
+  <p class="lead"> A place to save and organise useful coding resources. <%= link_to 'Add link', new_item_path(@item), :class => 'btn btn-large btn-primary'%> <%= link_to 'Create topic', new_topic_path(@topic), :class => 'btn btn-large btn-primary'%></p>
 </div>
 
-<div class="span8">
-  <div class="span4">
+  <div class="span3 left-col">
     <h4>Topics</h4>
-    <p><a href="#topicModal" role="button" class="btn btn-mini btn-primary" data-toggle="modal">New topic</a></p>
     <% @topics.each do |topic| %>
     <p><%= link_to topic.name, topic_path(topic) %> <span class="label label-warning"><%= topic.items.count %></span></p>
     <% end %>
   </div>
-  <div class="span4">
-    <h4>Links</h4>
-    <p><a href="#itemModal" role="button" class="btn btn-mini btn-primary" data-toggle="modal">New link</a></p>
-    <% @items.each do |item| %>
-    <p><%= link_to item.title, item.url %></p>
-    <% end %>
-  </div>
-</div>
-
-<!-- Modal -->
-<div id="itemModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="itemModalLabel">New link</h3>
-  </div>
-  <div class="modal-body">
-    <p><%= render 'items/form' %></p>
-  </div>
-</div>
-
-<div id="topicModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="topicModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="topicModalLabel">New topic</h3>
-  </div>
-  <div class="modal-body">
-    <p><%= render 'topics/form' %></p>
+  <% @items.each do |item| %>
+  <div class="row-fluid">
+    <div class="span3 well">
+      <i class="icon-edit pull-right"><%= link_to 'Edit', edit_item_path(item) %> </i>
+        <h4><%= link_to item.title, item.url %></h4>
+        <p><%= truncate(item.description, length: 95) %></p>
+        <p><%= link_to 'comments', item_path(item) %> <span class="label label-warning"><%= item.comments.count %></span></p>
+    </div>
+  <% end %>
   </div>
 </div>
