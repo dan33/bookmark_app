@@ -9,6 +9,7 @@ gem 'rails', '3.2.12'
 group :development do
      gem 'sqlite3'
      gem 'simple_form'
+     gem 'devise'
      gem 'friendly_id'
      gem 'twitter-bootstrap-rails'
      gem 'will_paginate-bootstrap'
