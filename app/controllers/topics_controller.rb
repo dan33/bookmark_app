@@ -28,10 +28,12 @@ class TopicsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:id])
+    @topic.user = current_user
   end
 
   def create
     @topic = Topic.new(params[:topic])
+    @topic.user = current_user
 
     respond_to do |format|
       if @topic.save

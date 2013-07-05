@@ -2,9 +2,9 @@
   <% @users.each do |user| %>
   <div class="container">
     <p><%= user.name %></p>
+    <p>Created <%= user.topics.count %> topic</p>
+    <p>Posted <%= user.items.count %> items</p>
+    <p>Belongs to <%= user.memberships.count %> group</p>
   </div>
   <% end %>
 </div>
-
-
-

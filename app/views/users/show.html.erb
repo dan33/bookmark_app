@@ -1,10 +1,15 @@
 <div class="row-fluid content">
   <div class="container">
     <h2><%= @user_name %></h2>
-    <p>Created <%= @user_topics.count %> topics</p>
-    <p>Posted <%= @user_items.count %> links</p>
-    <p>Posted <%= @user_comments.count %> comments</p>
-    <p>Belongs to <%= @user_memberships.count %> group</p>
+    <div class="span4">
+      <h4> Topics </h4>
+      <p><%= @user_topics %></p>
+    </div>
+    <div class="span4">
+      <h4> Links </h4>
+    <p><%= @user_items %></p>
+    </div>
+    <p><%= @user_memberships %></p>
   </div>
 </div>
 

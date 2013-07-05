@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.page(params[:page]).per_page(30).order('created_at DESC')
+    @users = User.all
 
       respond_to do |format|
         format.html  #show.html.erb
@@ -11,8 +11,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_topics = @user.topics
-    @user_items = @user.items
+    @user_name = @user.name
+    @user_topics = @user.topics.map { |topic| topic.name  }
+    @user_items = @user.items.map { |item| item.title  }
     @user_comments = @user.comments
     @user_memberships = @user.memberships
 
