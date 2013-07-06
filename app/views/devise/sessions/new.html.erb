@@ -1,20 +1,24 @@
-<h3>Sign in</h3>
+<div class="small-12 columns">
+  <h2>Sign in</h2>
+</div>
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, label: false, :required => true, :autofocus => true, :input_html => { placeholder: "Email", :class => "span4" } %>
-    <%= f.input :password, label: false, :required => true, :input_html => { placeholder: "Password", :class => "span4" } %>
-    <% if devise_mapping.rememberable? -%>
-    <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
-    <% end -%>
-    <% f.error :base %>
-  </div>
+  <div class="small-12 columns">
+    <div class="small-4 columns">
+      <%= f.input :email, label: false, :required => true, :autofocus => true, :input_html => { placeholder: "Email", } %>
+      <%= f.input :password, label: false, :required => true, :input_html => { placeholder: "Password" } %>
+      <% if devise_mapping.rememberable? -%>
+      <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+      <% end %>
+      <% f.error :base %>
 
-  <div class="actions">
-    <%= f.button :submit, "Sign in", :class => 'btn btn-primary' %>
+      <%= f.button :submit, "Sign in", :class => 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="small-12 columns">
+  <%= render "devise/shared/links" %>
+</div>

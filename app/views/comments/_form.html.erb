@@ -1,12 +1,8 @@
 <%= simple_form_for [@commentable, @comment] do |f| %>
 <%= f.error_notification %>
-<div class="form-inputs">
-  <%= f.input :content, label: false, :required => true, :as => :text, :input_html => { placeholder: "Comment", :rows => 3, :min => 10, :maxlength => 450, :class => "span5"} %>
+  <%= f.input :content, label: false, :required => true, :as => :text, :input_html => { placeholder: "Comment", :rows => 3, :min => 10, :maxlength => 450} %>
   <%= f.error :base %>
-</div>
 
-<div class="actions">
-  <%= f.submit nil, :class => 'btn btn-small btn-primary'%>
-  <%= link_to 'Cancel', items_path, :class => 'btn btn-small btn-primary' %>
-</div>
+  <%= f.submit nil, :class => 'button'%>
+  <%= link_to 'Cancel', items_path, :class => 'small button' %>
 <% end %>

@@ -1,34 +1,33 @@
-    <div class="span12">
-      <h3> Settings </h3>
-    </div>
-
-  <div class="span6">
-    <h4>Edit profile</h4>
-    <br>
+<div class="small-12 columns">
+  <h2> Settings </h2>
+  <h4>Edit profile</h4>
+</div>
 
     <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
       <%= f.error_notification %>
 
-      <div class="form-inputs">
-        <%= f.input :name, label: false, :required => true, :autofocus => true, :input_html => { placeholder: "Name", :class => "span4" } %>
-        <%= f.input :email, label: false, :required => true, :input_html => { placeholder: "Email", :class => "span4" } %>
+      <div class="small-12 columns">
+        <div class="small-4 columns">
+        <%= f.input :name, label: false, :required => true, :autofocus => true, :input_html => { placeholder: "Name" } %>
+        <%= f.input :email, label: false, :required => true, :input_html => { placeholder: "Email" } %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
 
-        <%= f.input :password, :autocomplete => "off", label: false, :required => false, :input_html => { placeholder: "New password", :class => "span4" } %>
-        <%= f.input :password_confirmation, :required => false, label: false, :input_html => { placeholder: "Confirm new password", :class => "span4" }%>
-        <%= f.input :current_password, :required => true, label: false, :input_html => { placeholder: "Current password to confirm your changes", :class => "span4" }%>
+        <%= f.input :password, :autocomplete => "off", label: false, :required => false, :input_html => { placeholder: "New password" } %>
+        <%= f.input :password_confirmation, :required => false, label: false, :input_html => { placeholder: "Confirm new password" }%>
+        <%= f.input :current_password, :required => true, label: false, :input_html => { placeholder: "Current password to confirm your changes" }%>
         <% f.error :base %>
-      </div>
 
-      <div class="actions">
-        <%= f.button :submit, "Update", :class => 'btn btn-primary' %>
-        <%= link_to 'Cancel', root_path, :class => 'btn' %>
+        <%= f.button :submit, "Update", :class => 'button' %>
+        <%= link_to 'Cancel', root_path, :class => 'small button' %>
       </div>
-      <br />
+    </div>
+
+  <div class="small-12 columns">
     <h4>Delete My Account</h4>
       <p>Unhappy? <%= link_to "delete my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
   </div>
+</div>
   <% end %>

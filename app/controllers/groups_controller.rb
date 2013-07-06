@@ -6,5 +6,6 @@ class GroupsController < ApplicationController
     @group = Group.find(1)
     @topics = Topic.all
     @items = Item.all
+    @comments = Comment.all
   end
 end

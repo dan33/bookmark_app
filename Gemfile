@@ -11,8 +11,6 @@ group :development do
      gem 'simple_form'
      gem 'devise'
      gem 'friendly_id'
-     gem 'twitter-bootstrap-rails'
-     gem 'will_paginate-bootstrap'
      gem "will_paginate", "~> 3.0.4"
      gem 'jquery-rails'
 end
@@ -22,8 +20,6 @@ group :production do
   gem 'thin'
   gem 'simple_form'
   gem 'friendly_id'
-  gem 'twitter-bootstrap-rails'
-  gem 'will_paginate-bootstrap'
   gem "will_paginate", "~> 3.0.4"
   gem 'jquery-rails'
 end
@@ -32,6 +28,5 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'therubyracer'
-  gem 'less-rails'
+  gem 'zurb-foundation'
 end

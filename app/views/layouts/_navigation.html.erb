@@ -1,24 +1,27 @@
-<div class="navbar navbar-inverse">
-  <div class="navbar-inner">
-    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-02">
-    </button>
-      <a href="/" class="brand">Bookmarking</a>
-        <div class="nav-collapse collapse" id="nav-collapse-02">
-          <ul class="nav pull-right">
-            <% if user_signed_in? %>
-              <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "<i class='icon-home'></i> #{current_user.name}".html_safe, root_url %></li>
-              <li class="<%= 'active' if current_page?(topics_path) %>"><%= link_to "Topics", topics_path %></li>
-              <li class="<%= 'active' if current_page?(items_path) %>"><%= link_to "Links", items_path %></li>
-              <li class="<%= 'active' if current_page?(edit_user_registration_path) %>"><%= link_to 'Settings', edit_user_registration_path %></li>
-              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-          </ul>
-
-          <ul class="nav">
-            <% else %>
-              <li class="<%= 'active' if current_page?(new_user_registration_path) %>"><%= link_to "Sign Up", new_user_registration_path %></li>
-              <li class="<%= 'active' if current_page?(new_user_session_path) %>"><%= link_to "Sign In", new_user_session_path %></li>
-          </ul>
-          <% end %>
-        </div>
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "Bookmarking", root_path %></a></h1>
+    </li>
+  </ul>
+  <section class="top-bar-section">
+    <ul class="right">
+      <% if user_signed_in? %>
+      <li class="divider"></li>
+      <li><%= link_to "Home", root_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Topics", topics_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Items", items_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Members", users_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Settings", edit_user_registration_path %></li>
+      <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+      <li><%= link_to "Sign In", new_user_session_path %></li>
+      <% end %>
+    </ul>
   </div>
-</div>
+</nav>

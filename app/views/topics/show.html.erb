@@ -1,23 +1,26 @@
-<div class="row-fluid content">
-  <div class="container">
-    <h2><%= @topic.name %></h2>
+<div class="row">
+  <div class="small-4 columns">
+    <h1><%= @topic.name %></h1>
+  </div>
+  <div class="small-8 columns">
     <p class="lead"><%= @topic.description %></p>
   </div>
+</div>
 
+<div class="small-12 columns">
   <% @topic.items.each do |item| %>
-  <div class="row-fluid">
-    <div class="span4 well">
-      <i class="icon-edit pull-right"><%= link_to 'Edit', edit_item_path(item) %> </i>
+  <div class="small-4 columns content">
+      <i class="pull-right"><%= link_to 'Edit', edit_item_path(item) %> </i>
         <h4><%= link_to item.title, item.url %></h4>
         <p><%= truncate(item.description, length: 75) %></p>
         <p><%= link_to 'comments', item_path(item) %> <span class="label label-warning"><%= item.comments.count %></span></p>
     </div>
   <% end %>
-  </div>
 
-  <%= link_to 'Edit topic', edit_topic_path(@topic), :class => 'btn btn-primary'%>
-  <%= link_to 'Cancel', topics_path, :class => 'btn' %>
+<div class="small-12 columns">
+  <%= link_to 'Edit topic', edit_topic_path(@topic), :class => 'button'%>
+  <%= link_to 'Cancel', topics_path, :class => 'small button' %>
 </div>
 
 
-
+</div>

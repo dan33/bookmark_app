@@ -1,19 +1,20 @@
-<div class="container">
-  <div class="span9">
-	  <h1> Topics </h1>
-		<p><%= link_to 'New topic', new_topic_path(@topic), :class => 'btn btn-primary'%></p>
+<div class="row">
+  <div class="small-4 columns">
+    <h1> Topics </h1>
+  </div>
+  <div class="small-8 columns">
+		<p><%= link_to 'New topic', new_topic_path(@topic), :class => 'small button'%></p>
   </div>
 </div>
 
+<div class="small-12 columns">
   <% @topics.each do |topic| %>
-  <div class="row-fluid">
-	  <div class="span4 well">
-      <i class="icon-edit pull-right"><%= link_to 'Edit', edit_topic_path(topic) %> </i>
+  <div class="small-4 columns content">
+      <i class="pull-right"><%= link_to 'Edit', edit_topic_path(topic) %> </i>
 	      <h4><%= link_to topic.name, topic_path(topic) %> <span class="label label-warning"><%= topic.items.count %></span></h4>
       	<p><%= truncate(topic.description, length: 95) %></p>
     </div>
   <% end %>
-  </div>
 
-  <%= will_paginate @topics, :renderer => BootstrapPagination::Rails %>
+  <%= will_paginate @topics %>
 </div>

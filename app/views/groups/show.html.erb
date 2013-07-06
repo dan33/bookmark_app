@@ -1,23 +1,41 @@
-<div class="container-fluid">
-<div class="span12">
-  <h1> WDI Learn to Code </h1>
-  <p class="lead"> A place to save and organise useful coding resources. <%= link_to 'Add link', new_item_path(@item), :class => 'btn btn-large btn-primary'%> <%= link_to 'Create topic', new_topic_path(@topic), :class => 'btn btn-large btn-primary'%></p>
+<div class="row">
+  <div class="small-4 columns">
+    <h3 class="name"> WDI Learn to Code </h3>
+  </div>
+  <div class="small-8 columns">
+    <h4 class="subheader"> A place to save and organise useful coding resources.</h4>
+  </div>
+
+
 </div>
 
-  <div class="span3 left-col">
-    <h4>Topics</h4>
-    <% @topics.each do |topic| %>
-    <p><%= link_to topic.name, topic_path(topic) %> <span class="label label-warning"><%= topic.items.count %></span></p>
-    <% end %>
-  </div>
-  <% @items.each do |item| %>
-  <div class="row-fluid">
-    <div class="span3 well">
-      <i class="icon-edit pull-right"><%= link_to 'Edit', edit_item_path(item) %> </i>
-        <h4><%= link_to item.title, item.url %></h4>
-        <p><%= truncate(item.description, length: 95) %></p>
-        <p><%= link_to 'comments', item_path(item) %> <span class="label label-warning"><%= item.comments.count %></span></p>
-    </div>
-  <% end %>
+<div class="row">
+  <div class="small-2 columns side-nav">
+    <div class="panel">
+    <h3>Topics</h3>
+    <%= link_to 'Create topic', new_topic_path(@topic), :class => 'tiny button' %>
+      <ul class="no-bullet">
+        <% @topics.each do |topic| %>
+        <li><%= link_to topic.name, topic_path(topic) %></li>
+      <% end %>
+      </ul>
   </div>
 </div>
+
+<div class="small-9 columns">
+  <h3> Items </h3>
+  <%= link_to 'Add link', new_item_path(@item), :class => 'tiny button'%>
+      <ul class="no-bullet inline-list">
+      <% @items.each do |item| %>
+        <div class="small-6 columns content">
+          <li><%= link_to item.title, item.url %></li>
+          <li><%= truncate(item.description, length: 95) %></li>
+          <li><%= link_to 'comments', item_path(item) %> <span class="label"><%= item.comments.count %></span></li>
+        </div>
+        <li class="divider"></li>
+      <% end %>
+      </ul>
+</div>
+
+</div>
+

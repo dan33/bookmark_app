@@ -1,6 +1,6 @@
-<div class="row-fluid content">
+<div class="small-12 columns">
   <% @users.each do |user| %>
-  <div class="container">
+  <div class="small-4 columns content">
     <p><%= user.name %></p>
     <p>Created <%= user.topics.count %> topic</p>
     <p>Posted <%= user.items.count %> items</p>
