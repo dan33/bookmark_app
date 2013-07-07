@@ -1,22 +1,53 @@
 class MembershipsController < ApplicationController
+
+  def new
+    @membership = Membership.new
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @membership }
+    end
+  end
+
+  def edit
+    @membership = Membership.find(params[:id])
+  end
+
   def create
-    @group = Group.find(params[:membership][:group_id])
-    current_user.join!(@group)
-      respond_to do |format|
-      format.html { redirect_to @group }
+    @membership = Membership.new(params[:membership])
+
+    respond_to do |format|
+      if @membership.save
+        format.html { redirect_to items_url }
+        format.json { render json: @membership, status: :created, location: @membership }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @membership.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    @membership = Membership.find(params[:id])
+
+    respond_to do |format|
+      if @membership.update_attributes(params[:membership])
+        format.html { redirect_to memberships_url }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @membership.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def destroy
-    @group = Membership.find(params[:id]).group
-    current_user.leave!(@group)
-      respond_to do |format|
-      format.html { redirect_to @group }
+    @membership = Membership.find(params[:id])
+    @membership.destroy
+
+    respond_to do |format|
+      format.html { redirect_to memberships_url }
+      format.json { head :no_content }
     end
   end
-
-  def index
-    @memberships = Membership.all
-  end
-
 end

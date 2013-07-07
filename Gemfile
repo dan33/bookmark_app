@@ -12,7 +12,7 @@ group :development do
      gem 'devise'
      gem 'friendly_id'
      gem "will_paginate", "~> 3.0.4"
-     gem 'jquery-rails'
+
 end
 
 group :production do
@@ -21,7 +21,6 @@ group :production do
   gem 'simple_form'
   gem 'friendly_id'
   gem "will_paginate", "~> 3.0.4"
-  gem 'jquery-rails'
 end
 
 group :assets do
@@ -29,4 +28,5 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'zurb-foundation'
+  gem 'jquery-rails'
 end

@@ -1,19 +1,28 @@
-<div class="row">
-  <div class="small-4 columns">
-    <h1> Links </h1>
+<div class="small-4 columns">
+    <h2>Links</h2>
   </div>
   <div class="small-8 columns">
-    <p><%= link_to 'New link', new_item_path(@item), :class => 'small button'%></p>
+    <div class="small-8 columns">
+      <ul class="no-bullet pull-right">
+        <li>Currently <%= @items.count %> links</li>
+        <li><%= link_to 'New link', new_item_path(@item), :class => 'small button'%></li>
+      </ul>
+    </div>
   </div>
-</div>
 
 <div class="small-12 columns">
   <% @items.each do |item| %>
   <div class="small-4 columns content">
       <i class="pull-right"><%= link_to 'Edit', edit_item_path(item) %> </i>
-        <h4><%= link_to item.title, item.url %></h4>
-        <p><%= truncate(item.description, length: 95) %></p>
-        <p><%= link_to 'comments', item_path(item) %> <span class="label label-warning"><%= item.comments.count %></span></p>
+        <ul class="no-bullet">
+          <li><h4><%= link_to item.title, item.url %></h4></li>
+          <li><p><%= truncate(item.description, length: 95) %><p></li>
+            <ul class="no-bullet inline-list">
+              <li><%= link_to 'comments', item_path(item) %></li>
+              <li><%= link_to item.topic.user.name, item.topic.user, :class => 'tiny button' %></li>
+              <li><%= link_to item.topic.name, item.topic, :class => 'tiny button' %></li>
+            </ul>
+          </ul>
     </div>
   <% end %>
 

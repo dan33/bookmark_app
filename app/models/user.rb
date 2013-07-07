@@ -39,4 +39,8 @@ class User < ActiveRecord::Base
   has_many :memberships
   has_many :groups, :through => :memberships
 
+  def name=(s)
+    super s.titleize
+  end
+
 end

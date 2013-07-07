@@ -5,10 +5,11 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id])
-    @topics = @group.topics
-    @items = Item.all
-    @comments = Comment.all
+    @group = Group.find(1)
+    @topics = Topic.order('created_at DESC limit 15')
+    @items = Item.joins(:topic).order('created_at DESC limit 12')
+    @comments = Comment.order('created_at DESC limit 15')
+    @users = User.order('created_at DESC limit 15')
   end
 
   def new
