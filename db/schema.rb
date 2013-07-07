@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704061151) do
+ActiveRecord::Schema.define(:version => 20130707025017) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20130704061151) do
     t.string   "commentable_type"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "user_id"
   end
 
   add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
@@ -28,7 +29,10 @@ ActiveRecord::Schema.define(:version => 20130704061151) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "slug"
   end
+
+  add_index "groups", ["slug"], :name => "index_groups_on_slug"
 
   create_table "items", :force => true do |t|
     t.string   "title"
@@ -74,9 +78,11 @@ ActiveRecord::Schema.define(:version => 20130704061151) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "slug"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["slug"], :name => "index_users_on_slug"
 
 end

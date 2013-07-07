@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
+#  name                   :string(255)
 #  email                  :string(255)      default(""), not null
 #  encrypted_password     :string(255)      default(""), not null
 #  reset_password_token   :string(255)
@@ -15,7 +16,7 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  name                   :string(255)
+#  slug                   :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -27,6 +28,9 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
   has_many :topics
   has_many :items

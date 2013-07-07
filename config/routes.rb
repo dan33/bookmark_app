@@ -2,7 +2,7 @@ Bookmark::Application.routes.draw do
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
   authenticated :user do
-    root :to => 'groups#show'
+    root :to => 'groups#index'
   end
   unauthenticated :user do
   devise_scope :user do
@@ -10,10 +10,12 @@ Bookmark::Application.routes.draw do
   end
 end
 
-  get '/users' => 'users#index'
-  get '/users/:id' => 'users#show'
+  resources :users
+  resources :groups
   resources :topics
   resources :items do
     resources :comments
   end
+
+  get '/profile' => 'users#profile'
 end

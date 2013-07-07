@@ -1,17 +1,32 @@
 <div class="small-12 columns">
   <div class="small-4 columns">
-    <h2><%= @user_name %></h2>
+    <h2><%= @user.name %></h2>
   </div>
+  <div class="small-8 columns">
+    <p><%= @user.topics.count %></p>
+    <p><%= @user.memberships.map { |e| e.group_id  } %></p>
+  </div>
+
     <div class="small-4 columns">
       <h4> Topics </h4>
-      <p><%= @user_topics %></p>
+      <% @user.topics.each do |topic| %>
+      <p><%= link_to topic.name, topic %></p>
+      <% end %>
     </div>
     <div class="small-4 columns">
       <h4> Links </h4>
-    <p><%= @user_items %></p>
+    <% @user.items.each do |item| %>
+      <p><%= link_to item.title, item %></p>
+    <% end %>
     </div>
-    <p><%= @user_memberships %></p>
+    <div class="small-4 columns">
+      <h4> Comments </h4>
+    <% @user.comments.each do |comment| %>
+      <p><%= comment.content %></p>
+    <% end %>
+    </div>
   </div>
+
 
 
 

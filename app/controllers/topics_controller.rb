@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+
   def index
     @topics = Topic.page(params[:page]).per_page(12).order('created_at DESC')
 

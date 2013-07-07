@@ -11,11 +11,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_name = @user.name
-    @user_topics = @user.topics.map { |topic| topic.name  }
-    @user_items = @user.items.map { |item| item.title  }
-    @user_comments = @user.comments
-    @user_memberships = @user.memberships
 
       respond_to do |format|
         format.html  #show.html.erb
@@ -24,6 +19,7 @@ class UsersController < ApplicationController
   end
 
   def profile
+    @user = current_user
   end
 
   def new

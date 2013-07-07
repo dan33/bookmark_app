@@ -7,6 +7,7 @@
 #  description :string(255)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  slug        :string(255)
 #
 
 class Group < ActiveRecord::Base
@@ -15,4 +16,7 @@ class Group < ActiveRecord::Base
   has_many :users, :through => :memberships
   has_many :topics, :through => :users
   has_many :items, :through => :topics
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 end

@@ -2,12 +2,12 @@
 #
 # Table name: topics
 #
-#  id          :integer          primary key
+#  id          :integer          not null, primary key
 #  name        :string(255)
 #  description :string(255)
-#  author      :string(255)
-#  created_at  :timestamp        not null
-#  updated_at  :timestamp        not null
+#  user_id     :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #  slug        :string(255)
 #
 

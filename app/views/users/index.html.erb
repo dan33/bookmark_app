@@ -1,7 +1,8 @@
 <div class="small-12 columns">
   <% @users.each do |user| %>
   <div class="small-4 columns content">
-    <p><%= user.name %></p>
+    <p><%= link_to user.name, user_path(user) %></p>
+    <%= link_to 'edit', edit_user_path(user) %>
     <p>Created <%= user.topics.count %> topic</p>
     <p>Posted <%= user.items.count %> items</p>
     <p>Belongs to <%= user.memberships.count %> group</p>
