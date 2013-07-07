@@ -1,11 +1,14 @@
 <div class="small-12 columns">
+  <h2>Members</h2>
   <% @users.each do |user| %>
   <div class="small-4 columns content">
-    <p><%= link_to user.name, user_path(user) %></p>
-    <%= link_to 'edit', edit_user_path(user) %>
-    <p>Created <%= user.topics.count %> topic</p>
-    <p>Posted <%= user.items.count %> items</p>
-    <p>Belongs to <%= user.memberships.count %> group</p>
+    <ul class="no-bullet">
+    <li class="pull-right"><%= link_to 'edit', edit_user_path(user) %></li>
+    <li><h4><%= link_to user.name, user_path(user) %></h4></li>
+    <li>Created <%= user.topics.count %> topic</li>
+    <li>Posted <%= user.items.count %> items</li>
+    <li>Belongs to <%= user.memberships.count %> group</li>
+    </ul>
   </div>
   <% end %>
 </div>

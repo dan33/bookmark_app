@@ -1,12 +1,39 @@
-<div class="row-fluid content">
-  <div class="container">
+<div class="small-12 columns">
+  <div class="small-4 columns">
     <h2><%= @user.name %></h2>
-    <p>Created <%= @user.topics.count %> topics</p>
-    <p>Posted <%= @user.items.count %> links</p>
-
-    <p>Belongs to <%= @user.memberships.count %> group</p>
+  </div>
+  <div class="small-8 columns">
+    <div class="small-8 columns">
+      <ul class="no-bullet pull-right">
+        <li>Created <%= @user.topics.count %> topics</li>
+        <li>Posted <%= @user.items.count %> items</li>
+      </ul>
+    </div>
+    <div class="small-4 columns">
+      <ul class="no-bullet pull-right">
+        <li>Posted <%= @user.comments.count %> comments</li>
+        <li>Belongs to <%= @user.memberships.count %> group</li>
+      </ul>
+    </div>
   </div>
 </div>
 
-
-
+    <div class="small-4 columns content">
+      <h4> Topics </h4>
+      <% @user.topics.each do |topic| %>
+      <p><%= link_to topic.name, topic %></p>
+      <% end %>
+    </div>
+    <div class="small-4 columns content">
+      <h4> Links </h4>
+    <% @user.items.each do |item| %>
+      <p><%= link_to item.title, item %></p>
+    <% end %>
+    </div>
+    <div class="small-4 columns content">
+      <h4> Comments </h4>
+    <% @user.comments.each do |comment| %>
+      <p><%= comment.content %></p>
+    <% end %>
+    </div>
+  </div>
