@@ -15,6 +15,7 @@ class MembershipsController < ApplicationController
 
   def create
     @membership = Membership.new(params[:membership])
+    @user = current_user
 
     respond_to do |format|
       if @membership.save

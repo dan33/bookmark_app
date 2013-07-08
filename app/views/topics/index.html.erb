@@ -5,26 +5,26 @@
     <div class="small-8 columns">
       <ul class="no-bullet pull-right">
         <li>Currently <%= @topics.count %> topics</li>
-        <li><%= link_to 'New topic', new_topic_path(@topic), :class => 'small button'%></li>
+        <li><%= link_to 'New topic', new_group_topic_path(@group, @topic), :class => 'small button'%></li>
       </ul>
     </div>
   </div>
 
 <div class="small-12 columns">
-  <% @topics.each do |topic| %>
+  <% @group.topics.each do |topic| %>
   <div class="small-4 columns content">
-      <i class="pull-right"><%= link_to 'Edit', edit_topic_path(topic) %> </i>
+      <i class="pull-right"><%= link_to 'Edit', edit_group_topic_path(@group, topic) %> </i>
         <ul class="no-bullet">
-          <li><h4><%= link_to topic.name, topic %></h4></li>
+          <li><h4><%= link_to topic.name, group_topic_path(@group, topic) %></h4></li>
           <li><p><%= truncate(topic.description, length: 95) %><p></li>
             <ul class="no-bullet inline-list">
-              <li><%= link_to 'comments', topic_path(topic) %></li>
-              <li><%= link_to topic.user.name, topic.user, :class => 'tiny button' %></li>
-              <li><%= link_to topic.name, topic, :class => 'tiny button' %></li>
+              <li><%= link_to 'comments', group_topic_path(@group, topic) %></li>
+              <li><%= link_to topic.user.name, group_topic_path(@group, topic.user), :class => 'tiny button' %></li>
+              <li><span class="label"><%= topic.items.count %> link</span> </li>
             </ul>
           </ul>
     </div>
   <% end %>
 
-  <%= will_paginate @topics %>
+
 </div>

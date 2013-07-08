@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    @group = Group.find(1)
     @users = User.all
 
       respond_to do |format|
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @group = Group.find(1)
 
       respond_to do |format|
         format.html  #show.html.erb

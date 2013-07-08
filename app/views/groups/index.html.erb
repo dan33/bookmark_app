@@ -13,6 +13,7 @@
       <i class="pull-right"><%= link_to 'Edit', edit_group_path(group) %> </i>
         <h4><%= link_to group.name, group_path(group) %></h4>
         <p><%= truncate(group.description, length: 95) %></p>
+        <%= link_to 'Join', memberships_path(:user_id => current_user, :group_id => @group), :method => :post %>
   </div>
   <% end %>
 </div>

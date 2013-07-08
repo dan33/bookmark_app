@@ -1,7 +1,11 @@
 class TopicsController < ApplicationController
 
   def index
-    @topics = Topic.page(params[:page]).per_page(12).order('created_at DESC')
+    @group = Group.find(1)
+    @topics = Topic.order('created_at DESC limit 15')
+    @items = Item.joins(:topic).order('created_at DESC limit 12')
+    @comments = Comment.order('created_at DESC limit 15')
+    @users = User.order('created_at DESC limit 15')
 
     respond_to do |format|
       format.html # index.html.erb

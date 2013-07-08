@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.page(params[:page]).per_page(12).order('created_at DESC')
+    @group = Group.find(1)
 
     respond_to do |format|
       format.html # index.html.erb

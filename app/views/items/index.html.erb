@@ -4,23 +4,23 @@
   <div class="small-8 columns">
     <div class="small-8 columns">
       <ul class="no-bullet pull-right">
-        <li>Currently <%= @items.count %> links</li>
-        <li><%= link_to 'New link', new_item_path(@item), :class => 'small button'%></li>
+        <li>Currently <%= @group.items.count %> links</li>
+        <li><%= link_to 'New link', new_group_item_path(@group, @item), :class => 'small button'%></li>
       </ul>
     </div>
   </div>
 
 <div class="small-12 columns">
-  <% @items.each do |item| %>
+  <% @group.items.each do |item| %>
   <div class="small-4 columns content">
-      <i class="pull-right"><%= link_to 'Edit', edit_item_path(item) %> </i>
+      <i class="pull-right"><%= link_to 'Edit', edit_group_item_path(@group, item) %> </i>
         <ul class="no-bullet">
           <li><h4><%= link_to item.title, item.url %></h4></li>
           <li><p><%= truncate(item.description, length: 95) %><p></li>
             <ul class="no-bullet inline-list">
-              <li><%= link_to 'comments', item_path(item) %></li>
-              <li><%= link_to item.topic.user.name, item.topic.user, :class => 'tiny button' %></li>
-              <li><%= link_to item.topic.name, item.topic, :class => 'tiny button' %></li>
+              <li><%= link_to 'comments', group_item_path(@group, item) %></li>
+              <li><%= link_to item.topic.user.name, group_user_path(@group, item.topic.user), :class => 'tiny button' %></li>
+              <li><%= link_to item.topic.name, group_topic_path(@group, item.topic), :class => 'tiny button' %></li>
             </ul>
           </ul>
     </div>

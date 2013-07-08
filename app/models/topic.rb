@@ -12,7 +12,7 @@
 #
 
 class Topic < ActiveRecord::Base
-  attr_accessible :author, :description, :name
+  attr_accessible :user_id, :description, :name
   has_many :items
   belongs_to :user
 
