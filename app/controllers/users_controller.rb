@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
 
   def index
-    @group = Group.find(1)
-    @users = User.all
+    @group = Group.find(params[:group_id])
+    @topics = Topic.order('created_at DESC limit 15')
+    @items = Item.joins(:topic).order('created_at DESC limit 12')
+    @comments = Comment.order('created_at DESC limit 15')
+    @users = User.order('created_at DESC limit 15')
 
       respond_to do |format|
         format.html  #show.html.erb
@@ -12,7 +15,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @group = Group.find(1)
+    @group = Group.find(params[:group_id])
 
       respond_to do |format|
         format.html  #show.html.erb
@@ -22,6 +25,7 @@ class UsersController < ApplicationController
 
   def profile
     @user = current_user
+    @group = Group.find(params[:group_id])
   end
 
   def new

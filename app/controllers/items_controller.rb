@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.page(params[:page]).per_page(12).order('created_at DESC')
-    @group = Group.find(1)
+    @group = Group.find(params[:group_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @group = Group.find(1)
+    @group = Group.find(params[:group_id])
     @item = Item.find(params[:id])
     @commentable = @item
     @comments = @commentable.comments
@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @group = Group.find(params[:group_id])
 
     respond_to do |format|
       format.html
@@ -33,6 +34,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @group = Group.find(params[:group_id])
   end
 
   def create
@@ -40,7 +42,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to items_url }
+        format.html { redirect_to group_items_url }
         format.json { render json: @item, status: :created, location: @item }
       else
         format.html { render action: "new" }
@@ -54,7 +56,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.update_attributes(params[:item])
-        format.html { redirect_to items_url }
+        format.html { redirect_to group_items_url }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -68,7 +70,7 @@ class ItemsController < ApplicationController
     @item.destroy
 
     respond_to do |format|
-      format.html { redirect_to items_url }
+      format.html { redirect_to group_items_url }
       format.json { head :no_content }
     end
   end

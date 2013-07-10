@@ -1,0 +1,30 @@
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "Bookmarking", root_path %></a></h1>
+    </li>
+  </ul>
+  <section class="top-bar-section">
+    <ul class="right">
+      <% if user_signed_in? %>
+        <li class="divider"></li>
+        <li><%= link_to "Groups", [@group] %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Topics", [@group, @topics] %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Items", [@group, @items] %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Members", [@group, @users] %></li>
+        <li class="divider"></li>
+        <li><%= link_to current_user.name, current_user %></li>
+        <li><%= link_to "Settings", edit_user_registration_path %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+
+      <% else %>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Sign In", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

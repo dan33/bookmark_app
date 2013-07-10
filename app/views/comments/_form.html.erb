@@ -1,4 +1,4 @@
-<%= simple_form_for [@commentable, @comment] do |f| %>
+<%= simple_form_for [@group, @commentable, @comment] do |f| %>
 <%= f.error_notification %>
   <%= f.input :content, label: false, :required => true, :as => :text, :input_html => { placeholder: "Comment", :rows => 3, :min => 10, :maxlength => 450} %>
   <%= f.error :base %>
