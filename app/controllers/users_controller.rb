@@ -25,7 +25,12 @@ class UsersController < ApplicationController
 
   def profile
     @user = current_user
-    @group = Group.find(params[:group_id])
+    @group = @user.groups.first
+    @groups = current_user.groups
+    @topics = Topic.order('created_at DESC')
+    @items = Item.joins(:topic).order('created_at DESC limit 12')
+    @comments = Comment.order('created_at DESC limit 15')
+
   end
 
   def new

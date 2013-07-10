@@ -1,25 +1,23 @@
 <div class="row">
+  <div class="small-7 columns">
+    <h3>Connects you with like minded people to help you share and discover the links that matter to you.</h3>
+  </div>
+  <div class="small-5 columns">
+    <h3> Sign up </h3>
+    <%= render 'devise/registrations/new' %>
+</div>
 
-  <h1> Bookmarks </h1>
-  <p class="lead"> A place to save and organise all of your bookmarks into topics.</p>
-
+<div class="row">
+  <div class="small-4 columns">
+    <h4>Groups</h4>
+    <p>stuff to do with groups. </p>
+  </div>
+  <div class="small-4 columns">
     <h4>Topics</h4>
-    <p><a href="/" class="button">New topic</a></p>
-    <% @topics.each do |topic| %>
-    <p><%= link_to topic.name, topic_path(topic) %> <span class="label label-warning"><%= topic.items.count %></span></p>
-    <% end %>
-
+    <p>stuff to do with topics. </p>
+  </div>
+  <div class="small-4 columns">
     <h4>Links</h4>
-    <p><a href="/" class="button">New item</a></p>
-    <% @items.each do |item| %>
-    <p><%= link_to item.title, item.url %></p>
-    <% end %>
-
-  <h4>Topics</h4>
-  <p> Links are organised into topics. You can create a topic and then add links to it, or you can add links to an existing topic. </p>
-  <a class="btn btn-mini btn-primary" href="/topics">View topics </a>
-  <h4>Links</h4>
-  <p> You can view a feed of all links if you're interested in just seeing the latest stuff. </p>
-  <a class="btn btn-mini btn-primary" href="/items">View links </a>
-
+    <p>stuff to do with links. </p>
+  </div>
 </div>

@@ -1,0 +1,10 @@
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+      <%= f.input :name, label: false, :required => true, :autofocus => true, :input_html => { placeholder: "First name" } %>
+      <%= f.input :email, label: false, :required => true, :input_html => { placeholder: "Email" } %>
+      <%= f.input :password, label: false, :required => true, :input_html => { placeholder: "Password" } %>
+      <%= f.input :password_confirmation, label: false, :required => true, :input_html => { placeholder: "Confirm Password" } %>
+      <% f.error :base %>
+      <%= f.button :submit, "Sign up", :class => 'button' %>
+      <% end %>

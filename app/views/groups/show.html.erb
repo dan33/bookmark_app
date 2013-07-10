@@ -1,10 +1,7 @@
-<div class="row">
-  <div class="small-4 columns">
-    <h3 class="name"> <%= @group.name %> </h3>
-  </div>
-  <div class="small-8 columns">
-    <h4 class="subheader"> A place to save and organise useful coding resources.</h4>
-  </div>
+
+  <div class="small-12 columns">
+    <h3 class="name"> <%= @group.name %> <small><%= @group.description %></small> </h3>
+
 
 
 </div>
@@ -31,7 +28,7 @@
 </div>
 
 <div class="small-9 columns">
-  <h3> Items </h3>
+  <h3> Links </h3>
   <%= link_to 'Add link', new_group_item_path(@group, @item), :class => 'small button'%>
       <ul class="no-bullet">
       <% @group.items.each do |item| %>
