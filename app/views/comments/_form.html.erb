@@ -4,5 +4,5 @@
   <%= f.error :base %>
 
   <%= f.submit nil, :class => 'button'%>
-  <%= link_to 'Cancel', items_path, :class => 'small button' %>
+  <%= link_to 'Cancel', group_items_path(@group, @item), :class => 'small button' %>
 <% end %>

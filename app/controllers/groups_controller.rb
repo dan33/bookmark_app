@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find_by_slug(params[:id])
+    @group = Group.find(params[:id])
     @topics = Topic.order('created_at DESC limit 15')
     @items = Item.joins(:topic).order('created_at DESC limit 12')
     @comments = Comment.order('created_at DESC limit 15')

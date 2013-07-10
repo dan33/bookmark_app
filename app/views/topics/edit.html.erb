@@ -1,8 +1,8 @@
 <div class="small-4 columns">
 	<h3>Edit Topic</h3>
 		<%= render 'form' %>
-		<% if @topic.items.empty? %>
-    <%= link_to 'Delete', @topic, method: :delete, data: { confirm: 'Are you sure you want to delete this topic?' } %>
+		<% if ![@group, @topic.items] %>
+    <%= link_to 'Delete', [@group, @topic], method: :delete, data: { confirm: 'Are you sure you want to delete this topic?' } %>
     <% end %>
 </div>
 

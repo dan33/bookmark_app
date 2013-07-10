@@ -3,7 +3,7 @@
   <% @group.users.each do |user| %>
   <div class="small-4 columns content">
     <ul class="no-bullet">
-    <li class="pull-right"><%= link_to 'edit', edit_group_user_path(@group, user) %></li>
+    <li class="pull-right"><%= link_to 'edit', edit_user_registration_path(@user) %></li>
     <li><h4><%= link_to user.name, group_user_path(@group, user) %></h4></li>
     <li>Created <%= user.topics.count %> topic</li>
     <li>Posted <%= user.items.count %> items</li>

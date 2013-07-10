@@ -1,4 +1,4 @@
-<%= simple_form_for @item do |f| %>
+<%= simple_form_for [@group, @item] do |f| %>
 <%= f.error_notification %>
       <%= f.input :title, label: false, :required => true, :as => :text, :input_html => { placeholder: "Title", :rows => 1, :min => 10, :maxlength => 450 } %>
       <%= f.input :url, label: false, :required => true, :as => :text, :input_html => { placeholder: "URL", :rows => 1, :maxlength => 450 } %>
@@ -7,5 +7,5 @@
       <% f.error :base %>
 
       <%= f.submit nil, :class => 'button'%>
-      <%= link_to 'Cancel', items_path, :class => 'small button' %>
+      <%= link_to 'Cancel', group_items_path(@group, @item), :class => 'small button' %>
 <% end %>

@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
 
   def index
-    @group = Group.find(1)
+    @group = Group.find(params[:group_id])
     @topics = Topic.order('created_at DESC limit 15')
     @items = Item.joins(:topic).order('created_at DESC limit 12')
     @comments = Comment.order('created_at DESC limit 15')
@@ -14,7 +14,8 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
+    @group = Group.find(params[:group_id])
+    @topic = Topic.find_by_slug(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,6 +25,7 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
+    @group = Group.find(params[:group_id])
 
     respond_to do |format|
       format.html
@@ -32,17 +34,18 @@ class TopicsController < ApplicationController
   end
 
   def edit
+    @group = Group.find(params[:group_id])
     @topic = Topic.find(params[:id])
-    @topic.user = current_user
   end
 
   def create
     @topic = Topic.new(params[:topic])
     @topic.user = current_user
+    @group = Group.find(params[:group_id])
 
     respond_to do |format|
       if @topic.save
-        format.html { redirect_to topics_url }
+        format.html { redirect_to group_topics_url }
         format.json { render json: @topic, status: :created, location: @topic }
       else
         format.html { render action: "new" }
@@ -53,10 +56,11 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
+    @group = Group.find(params[:group_id])
 
     respond_to do |format|
       if @topic.update_attributes(params[:topic])
-        format.html { redirect_to topics_url }
+        format.html { redirect_to group_topics_url }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -68,9 +72,10 @@ class TopicsController < ApplicationController
   def destroy
     @topic = Topic.find(params[:id])
     @topic.destroy
+    @group = Group.find(params[:group_id])
 
     respond_to do |format|
-      format.html { redirect_to topics_url }
+      format.html { redirect_to group_topics_url }
       format.json { head :no_content }
     end
   end

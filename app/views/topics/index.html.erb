@@ -19,7 +19,7 @@
           <li><p><%= truncate(topic.description, length: 95) %><p></li>
             <ul class="no-bullet inline-list">
               <li><%= link_to 'comments', group_topic_path(@group, topic) %></li>
-              <li><%= link_to topic.user.name, group_topic_path(@group, topic.user), :class => 'tiny button' %></li>
+              <li><%= link_to topic.user.name, group_user_path(@group, topic.user), :class => 'tiny button' %></li>
               <li><span class="label"><%= topic.items.count %> link</span> </li>
             </ul>
           </ul>

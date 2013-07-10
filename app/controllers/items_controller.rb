@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @group = Group.find(1)
     @item = Item.find(params[:id])
     @commentable = @item
     @comments = @commentable.comments

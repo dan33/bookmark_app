@@ -21,13 +21,13 @@
     <div class="small-4 columns content">
       <h4> Topics </h4>
       <% @user.topics.each do |topic| %>
-      <p><%= link_to topic.name, topic %></p>
+      <p><%= link_to topic.name, group_topic_path(@group, topic) %></p>
       <% end %>
     </div>
     <div class="small-4 columns content">
       <h4> Links </h4>
     <% @user.items.each do |item| %>
-      <p><%= link_to item.title, item %></p>
+      <p><%= link_to item.title, group_item_path(@group, item) %></p>
     <% end %>
     </div>
     <div class="small-4 columns content">

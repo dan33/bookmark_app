@@ -1,8 +1,8 @@
   <div class="small-7 columns">
     <h2><%= link_to @item.title, @item.url %></h2>
     <p class="lead"><%= @item.description %></p>
-    <%= link_to 'Edit link', edit_item_path(@item), :class => 'button'%>
-    <%= link_to 'Cancel', items_path, :class => 'small button' %>
+    <%= link_to 'Edit link', edit_group_item_path(@group, @item), :class => 'button'%>
+    <%= link_to 'Cancel', group_items_path(@group, @item), :class => 'small button' %>
   </div>
 
   <div class="small-4 columns">
