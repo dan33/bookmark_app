@@ -1,20 +1,10 @@
-<div class="small-4 columns">
-    <h2>Topics</h2>
-  </div>
-  <div class="small-8 columns">
-    <div class="small-8 columns">
-      <ul class="no-bullet pull-right">
-        <li>Currently <%= @topics.count %> topics</li>
-        <li><%= link_to 'New topic', new_group_topic_path(@group, @topic), :class => 'small button'%></li>
-      </ul>
-    </div>
-  </div>
+<%= render 'groups/header' %>
 
 <div class="small-12 columns">
   <% @group.topics.each do |topic| %>
-  <div class="small-4 columns content">
-      <i class="pull-right"><%= link_to 'Edit', edit_group_topic_path(@group, topic) %> </i>
+  <div class="small-4 columns">
         <ul class="no-bullet">
+          <i class="pull-right"><%= link_to 'Edit', edit_group_topic_path(@group, topic) %> </i>
           <li><h4><%= link_to topic.name, group_topic_path(@group, topic) %></h4></li>
           <li><p><%= truncate(topic.description, length: 95) %><p></li>
             <ul class="no-bullet inline-list">

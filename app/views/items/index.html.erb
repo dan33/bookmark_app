@@ -1,20 +1,11 @@
-<div class="small-4 columns">
-    <h2>Links</h2>
-  </div>
-  <div class="small-8 columns">
-    <div class="small-8 columns">
-      <ul class="no-bullet pull-right">
-        <li>Currently <%= @group.items.count %> links</li>
-        <li><%= link_to 'New link', new_group_item_path(@group, @item), :class => 'small button'%></li>
-      </ul>
-    </div>
-  </div>
+<%= render 'groups/header' %>
 
 <div class="small-12 columns">
   <% @group.items.each do |item| %>
-  <div class="small-4 columns content">
-      <i class="pull-right"><%= link_to 'Edit', edit_group_item_path(@group, item) %> </i>
+  <div class="small-4 columns">
+
         <ul class="no-bullet">
+          <i class="pull-right"><%= link_to 'Edit', edit_group_item_path(@group, item) %> </i>
           <li><h4><%= link_to item.title, item.url %></h4></li>
           <li><p><%= truncate(item.description, length: 95) %><p></li>
             <ul class="no-bullet inline-list">

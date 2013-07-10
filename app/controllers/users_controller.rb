@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = current_user
     @group = @user.groups.first
     @groups = current_user.groups
-    @topics = Topic.order('created_at DESC')
+    @topics = Topic.order('created_at DESC limit 15')
     @items = Item.joins(:topic).order('created_at DESC limit 12')
     @comments = Comment.order('created_at DESC limit 15')
 

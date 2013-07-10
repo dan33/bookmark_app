@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="small-7 columns">
+    <h3 class="name"> <%= @group.name %> <small><%= @group.description %></small> </h3>
+  </div>
+  <div class="small-5 columns">
+    <%= link_to 'Topics', group_topics_path(@group), :class => 'small button' %>
+    <%= link_to 'Links', group_items_path(@group), :class => 'small button' %>
+    <%= link_to 'Members', group_users_path(@group), :class => 'small button' %>
+  </div>
+  <hr>
+</div>

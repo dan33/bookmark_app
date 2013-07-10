@@ -6,10 +6,6 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @topics = Topic.order('created_at DESC limit 15')
-    @items = Item.joins(:topic).order('created_at DESC limit 12')
-    @comments = Comment.order('created_at DESC limit 15')
-    @users = User.order('created_at DESC limit 15')
   end
 
   def new
