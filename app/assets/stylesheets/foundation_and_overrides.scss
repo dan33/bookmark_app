@@ -7,6 +7,10 @@
   padding: 15px 15px 0 15px;
 }
 
+.bottom-padding {
+  padding-bottom: 100px;
+}
+
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
 $base-font-size: 100% !default;
@@ -50,7 +54,7 @@ $body-bg: #f1f1f1;
 // Colors
 
 $primary-color: #E54028;
-// $secondary-color: #32742C;
+$secondary-color: #01A4A4;
 // $alert-color: #c60f13;
 // $success-color: #5da423;
 
@@ -171,7 +175,7 @@ $global-radius: 0px;
 // <small> styling
 
 // $small-font-size: 60%;
-// $small-font-color: lighten($header-font-color, 30%);
+// $small-font-color: lighten($header-font-color, 20%);
 
 // Paragraphs
 
@@ -1088,7 +1092,7 @@ $sub-nav-list-padding-top: emCalc(20px);
 // Active item styles
 
 // $sub-nav-active-font-weight: bold;
-// $sub-nav-active-bg: $primary-color;
+$sub-nav-active-bg: $primary-color;
 // $sub-nav-active-color: #fff;
 // $sub-nav-active-padding: emCalc(3px) emCalc(9px);
 // $sub-nav-active-cursor: $cursor-default-value;

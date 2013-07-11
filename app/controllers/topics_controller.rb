@@ -89,6 +89,7 @@ class TopicsController < ApplicationController
   private
   def check_if_member
     @user = current_user
+    @group = Group.find(params[:group_id])
     redirect_to groups_path unless @user.groups.include?(@group)
   end
 

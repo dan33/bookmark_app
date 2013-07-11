@@ -1,8 +1,8 @@
 <div class="row">
   <div class="small-8 columns">
-    <h3 class="name"> <%= link_to @group.name, @group %> <small><%= @group.description %></small> </h3>
-    <%= link_to 'Add link', new_group_item_path(@group, @item), :class => 'tiny button' if @user.groups.include?(@group) %>
-      <%= link_to 'Create topic', new_group_topic_path(@group, @topic), :class => 'tiny button' if @user.groups.include?(@group) %>
+    <h3><%= @group.name %> <small><%= @group.description %></small> </h3>
+    <%= link_to 'Add link', new_group_item_path(@group, @item), :class => 'button' if @user.groups.include?(@group) %>
+      <%= link_to 'Create topic', new_group_topic_path(@group, @topic), :class => 'button' if @user.groups.include?(@group) %>
   </div>
   <div class="small-4 columns">
       <dl class="sub-nav">
@@ -11,6 +11,7 @@
         <dd class="<%= 'active' if current_page? group_items_path(@group) %>"><%= link_to 'Links', group_items_path(@group) %></dd>
         <dd class="<%= 'active' if current_page? group_users_path(@group) %>"><%= link_to 'Members', group_users_path(@group) %></dd>
       </dl>
+      <%= link_to @group.name, @group %>
   </div>
   <hr>
 </div>

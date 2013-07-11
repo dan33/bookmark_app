@@ -1,6 +1,6 @@
 <%= render 'groups/header' %>
 
-<div class="row""
+<div class="row bottom-padding">
   <div class="small-12 columns">
     <div class="small-4 columns">
       <h2><%= @user.name %></h2>
@@ -21,21 +21,28 @@
       </div>
     </div>
   </div>
+  <hr>
 
 <div class="row">
-  <div class="small-4 columns">
+  <div class="small-3 columns">
+      <h4> Groups </h4>
+      <% @user.groups.each do |group| %>
+      <p><%= link_to group.name, group %></p>
+      <% end %>
+    </div>
+  <div class="small-3 columns">
     <h4> Topics </h4>
     <% @user.topics.each do |topic| %>
     <p><%= link_to topic.name, group_topic_path(@group, topic) %></p>
     <% end %>
   </div>
-  <div class="small-4 columns">
+  <div class="small-3 columns">
     <h4> Links </h4>
     <% @user.items.each do |item| %>
     <p><%= link_to item.title, group_item_path(@group, item) %></p>
     <% end %>
   </div>
-  <div class="small-4 columns">
+  <div class="small-3 columns">
     <h4> Comments </h4>
     <% @user.comments.each do |comment| %>
     <p><%= comment.content %></p>
@@ -43,7 +50,7 @@
   </div>
 
   <div class="small-12 columns">
-    <%= link_to "Back to #{@group.name}", @group, :class => 'button' %>
+    <%= link_to "Back to #{@group.name}", @group %>
   </div>
 </div>
 

@@ -18,10 +18,11 @@
     </div>
   </div>
 </div>
+<hr>
 
     <% if @user.groups.empty? %>
 
-    <div class="row">
+    <div class="row bottom-padding">
       <div class="small-12">
         <p class="lead">You haven't joined any groups or posted anything yet.</p>
         <p><%= link_to 'Join a group now', groups_path, :class => 'button' %></p>
@@ -30,25 +31,25 @@
 
     <% else %>
 
-    <div class="small-3 columns content">
+    <div class="small-3 columns">
       <h4> Groups </h4>
       <% @user.groups.each do |group| %>
       <p><%= link_to group.name, group %></p>
       <% end %>
     </div>
-    <div class="small-3 columns content">
+    <div class="small-3 columns">
       <h4> Topics </h4>
       <% @user.topics.each do |topic| %>
       <p><%= link_to topic.name, group_topic_path(@group, topic) %></p>
       <% end %>
     </div>
-    <div class="small-3 columns content">
+    <div class="small-3 columns">
       <h4> Links </h4>
     <% @user.items.each do |item| %>
       <p><%= link_to item.title, group_item_path(@group, item) %></p>
     <% end %>
     </div>
-    <div class="small-3 columns content">
+    <div class="small-3 columns">
       <h4> Comments </h4>
     <% @user.comments.each do |comment| %>
       <p><%= comment.content %></p>

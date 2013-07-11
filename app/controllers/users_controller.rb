@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @items = Item.joins(:topic).order('created_at DESC limit 12')
     @comments = Comment.order('created_at DESC limit 15')
     @users = User.order('created_at DESC limit 15')
+    @user = current_user
 
       respond_to do |format|
         format.html  #show.html.erb

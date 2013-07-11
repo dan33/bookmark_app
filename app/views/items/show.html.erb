@@ -1,10 +1,9 @@
 <%= render 'groups/header' %>
 
-<div class="row">
-  <div class="small-7 columns">
-    <h4><%= link_to @item.title, @item.url %><small></small></h4>
+<div class="row bottom-padding">
+  <div class="small-12 columns">
+    <h4><%= link_to @item.title, @item.url %> <small><em> <%= link_to 'Edit', edit_group_item_path(@group, @item) if @user.groups.include?(@group) %></em></small></h4>
     <p><%= @item.description %></p>
-    <%= link_to 'Edit link', edit_group_item_path(@group, @item), :class => 'button' if @user.groups.include?(@group) %>
   </div>
 
   <div class="small-4 columns">
@@ -14,4 +13,3 @@
   </div>
   <%= render 'back' %>
 </div>
-

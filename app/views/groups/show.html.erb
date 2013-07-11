@@ -1,6 +1,12 @@
 <%= render 'header' %>
 
-<div class="row">
+<% if @group.topics.empty? %>
+
+  <%= render 'empty_message' %>
+
+<% else %>
+
+<div class="row bottom-padding">
   <div class="small-2 columns">
     <h3>Topics</h3>
       <ul class="no-bullet">
@@ -15,7 +21,7 @@
   <h3> Links </h3>
       <ul class="no-bullet">
       <% @group.items.each do |item| %>
-        <div class="small-6 columns content">
+        <div class="small-6 columns">
           <li><%= link_to item.title, item.url %></li>
           <li><%= truncate(item.description, length: 95) %></li>
             <ul class="no-bullet inline-list">
@@ -30,4 +36,6 @@
 </div>
 
 </div>
+
+<% end %>
 

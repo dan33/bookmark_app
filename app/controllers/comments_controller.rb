@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.new(params[:comment])
     @comment.user = current_user
     if @comment.save
-      redirect_to group_items_path(@comment.item), notice: "Comment created."
+      redirect_to group_items_path, notice: "Comment created."
     else
       render :new
     end

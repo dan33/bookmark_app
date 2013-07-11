@@ -3,6 +3,5 @@
   <%= f.input :content, label: false, :required => true, :as => :text, :input_html => { placeholder: "Comment", :rows => 3, :min => 10, :maxlength => 450} %>
   <%= f.error :base %>
 
-  <%= f.submit nil, :class => 'button'%>
-  <%= link_to 'Cancel', group_items_path(@group, @item), :class => 'small button' %>
+  <%= f.submit nil, :class => 'small button'%>
 <% end %>
