@@ -2,6 +2,10 @@
 // Foundation Variables
 //
 
+.row {
+  background-color: #ffffff;
+}
+
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
 $base-font-size: 100% !default;
@@ -28,7 +32,7 @@ $em-base: 16px !default;
 
 $default-float: left;
 
-// $body-bg: #fff;
+$body-bg: #f1f1f1;
 // $body-font-color: #222;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
@@ -44,8 +48,8 @@ $default-float: left;
 
 // Colors
 
-$primary-color: #507642;
-// $secondary-color: #e9e9e9;
+$primary-color: #E54028;
+// $secondary-color: #32742C;
 // $alert-color: #c60f13;
 // $success-color: #5da423;
 
@@ -850,10 +854,7 @@ $button-border-width: 0px;
 //
 
 .content {
-  margin: 10px 0px 10px 0px;
-  border-top: 1px solid #e9e9e9;
-  padding: 5px;
-  min-height: 140px;
+  margin-top: 10px;
 }
 
 .pull-right {
@@ -1073,7 +1074,7 @@ $panel-border-size: 1px;
 // Margin and padding
 
 // $sub-nav-list-margin: emCalc(-4px) 0 emCalc(18px);
-// $sub-nav-list-padding-top: emCalc(4px);
+$sub-nav-list-padding-top: emCalc(20px);
 
 // Definition
 
@@ -1216,7 +1217,7 @@ $panel-border-size: 1px;
 
 // Background color for the top bar
 
-$topbar-bg: #507642 !default;
+$topbar-bg: #3B3B3D !default;
 
 // Height and margin
 

@@ -1,9 +1,12 @@
 <%= render 'groups/header' %>
 
-<div class="small-4 columns">
-	<h3>Edit Topic</h3>
-		<%= render 'form' %>
-    <%= link_to 'Delete', [@group, @topic], method: :delete, data: { confirm: 'Are you sure you want to delete this topic?' } if @topic.items.empty? %>
+<div class="row">
+  <div class="small-4 columns">
+	 <h3>Edit Topic</h3>
+	   <%= render 'form' %>
+     <p><%= link_to 'Delete', [@group, @topic], method: :delete, data: { confirm: 'Are you sure you want to delete this topic?' } if @topic.items.empty? %></p>
+  </div>
+<%= render 'back' %>
 </div>
 
 

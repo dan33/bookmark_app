@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
   end
 
   def create
+    binding.pry
     @comment = @commentable.comments.new(params[:comment])
     @comment.user = current_user
     if @comment.save
@@ -22,7 +23,7 @@ class CommentsController < ApplicationController
 private
 
   def load_commentable
-    resource, id = request.path.split('/')[1, 2]
+    resource, id = request.path.split('/')[1, 3]
     @commentable = resource.singularize.classify.constantize.find(id)
   end
 end

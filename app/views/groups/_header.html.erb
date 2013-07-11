@@ -1,11 +1,17 @@
 <div class="row">
-  <div class="small-7 columns">
-    <h3 class="name"> <%= @group.name %> <small><%= @group.description %></small> </h3>
+  <div class="small-8 columns">
+    <h3 class="name"> <%= link_to @group.name, @group %> <small><%= @group.description %></small> </h3>
+    <%= link_to 'Add link', new_group_item_path(@group, @item), :class => 'tiny button'%>
+      <%= link_to 'Create topic', new_group_topic_path(@group, @topic), :class => 'tiny button' %>
   </div>
-  <div class="small-5 columns">
-    <%= link_to 'Topics', group_topics_path(@group), :class => 'small button' %>
-    <%= link_to 'Links', group_items_path(@group), :class => 'small button' %>
-    <%= link_to 'Members', group_users_path(@group), :class => 'small button' %>
+  <div class="small-4 columns">
+      <dl class="sub-nav">
+        <dt>Filter:</dt>
+        <dd class="<%= 'active' if current_page? group_topics_path(@group) %>"><%= link_to 'Topics', group_topics_path(@group) %></dd>
+        <dd class="<%= 'active' if current_page? group_items_path(@group) %>"><%= link_to 'Links', group_items_path(@group) %></dd>
+        <dd class="<%= 'active' if current_page? group_users_path(@group) %>"><%= link_to 'Members', group_users_path(@group) %></dd>
+      </dl>
   </div>
   <hr>
 </div>
+

@@ -1,15 +1,20 @@
 <%= render 'groups/header' %>
 
-<div class="small-12 columns">
-  <h2>Members</h2>
+<div class="row">
+  <div class="small-12 columns">
   <% @group.users.each do |user| %>
-  <div class="small-4 columns content">
-    <ul class="no-bullet">
-    <li><h4><%= link_to user.name, group_user_path(@group, user) %></h4></li>
-    <li>Created <%= user.topics.count %> topic</li>
-    <li>Posted <%= user.items.count %> items</li>
-    <li>Belongs to <%= user.memberships.count %> group</li>
-    </ul>
-  </div>
+    <div class="small-4 columns">
+      <ul class="no-bullet">
+        <li><h4><%= link_to user.name, group_user_path(@group, user) %></h4></li>
+        <li>Created <%= user.topics.count %> topic</li>
+        <li>Posted <%= user.items.count %> items</li>
+        <li>Belongs to <%= user.memberships.count %> group</li>
+      </ul>
+    </div>
   <% end %>
+  </div>
+
+  <div class="small-12 columns">
+    <%= link_to "Back to #{@group.name}", @group, :class => 'button' %>
+  </div>
 </div>

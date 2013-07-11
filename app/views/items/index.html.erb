@@ -1,9 +1,9 @@
 <%= render 'groups/header' %>
 
-<div class="small-12 columns">
-  <% @group.items.each do |item| %>
-  <div class="small-4 columns">
-
+<div class="row">
+  <div class="small-12 columns">
+    <% @group.items.each do |item| %>
+      <div class="small-4 columns">
         <ul class="no-bullet">
           <i class="pull-right"><%= link_to 'Edit', edit_group_item_path(@group, item) %> </i>
           <li><h4><%= link_to item.title, item.url %></h4></li>
@@ -14,10 +14,12 @@
               <li><%= link_to item.topic.name, group_topic_path(@group, item.topic), :class => 'tiny button' %></li>
             </ul>
           </ul>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
+  </div>
 
-<div class="small-12 columns">
-  <%= will_paginate @items %>
-</div>
+  <div class="small-12 columns">
+    <%= link_to "Back to #{@group.name}", @group, :class => 'button' %>
+  </div>
+
 </div>
