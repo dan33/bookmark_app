@@ -17,7 +17,7 @@ class TopicsController < ApplicationController
 
   def show
     @group = Group.find(params[:group_id])
-    @topic = Topic.find_by_slug(params[:id])
+    @topic = Topic.find(params[:id])
     @user = current_user
 
     respond_to do |format|
