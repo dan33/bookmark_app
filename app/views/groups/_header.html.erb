@@ -11,7 +11,7 @@
         <dd class="<%= 'active' if current_page? group_items_path(@group) %>"><%= link_to 'Links', group_items_path(@group) %></dd>
         <dd class="<%= 'active' if current_page? group_users_path(@group) %>"><%= link_to 'Members', group_users_path(@group) %></dd>
       </dl>
-      <%= link_to @group.name, @group %>
+      <p class="lead margin-left"><%= link_to @group.name, @group %></p>
   </div>
   <hr>
 </div>

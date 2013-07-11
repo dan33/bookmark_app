@@ -6,7 +6,7 @@
     <p><%= @item.description %></p>
   </div>
 
-  <div class="small-4 columns">
+  <div class="small-5 columns">
     <h4>Comments</h4>
     <%= render "comments/comments" %>
     <p><%= render "comments/form" if @user.groups.include?(@group) %></p>
