@@ -1,3 +1,4 @@
+<div class="row">
 <div class="small-12 columns">
   <div class="small-4 columns">
     <h2><%= @user.name %></h2>
@@ -17,6 +18,17 @@
     </div>
   </div>
 </div>
+
+    <% if @user.groups.empty? %>
+
+    <div class="row">
+      <div class="small-12">
+        <p class="lead">You haven't joined any groups or posted anything yet.</p>
+        <p><%= link_to 'Join a group now', groups_path, :class => 'button' %></p>
+      </div>
+    </div>
+
+    <% else %>
 
     <div class="small-3 columns content">
       <h4> Groups </h4>
@@ -42,4 +54,7 @@
       <p><%= comment.content %></p>
     <% end %>
     </div>
+
   </div>
+  <% end %>
+</div>

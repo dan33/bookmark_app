@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_filter :check_if_member, :except => [:index, :show]
 
   def index
     @group = Group.find(params[:group_id])
@@ -6,6 +7,7 @@ class TopicsController < ApplicationController
     @items = Item.joins(:topic).order('created_at DESC limit 12')
     @comments = Comment.order('created_at DESC limit 15')
     @users = User.order('created_at DESC limit 15')
+    @user = current_user
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,6 +18,7 @@ class TopicsController < ApplicationController
   def show
     @group = Group.find(params[:group_id])
     @topic = Topic.find_by_slug(params[:id])
+    @user = current_user
 
     respond_to do |format|
       format.html # show.html.erb
@@ -58,6 +61,7 @@ class TopicsController < ApplicationController
   def update
     @topic = Topic.find(params[:id])
     @group = Group.find(params[:group_id])
+    @user = current_user
 
     respond_to do |format|
       if @topic.update_attributes(params[:topic])
@@ -74,11 +78,19 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @topic.destroy
     @group = Group.find(params[:group_id])
+    @user = current_user
 
     respond_to do |format|
       format.html { redirect_to group_topics_url }
       format.json { head :no_content }
     end
   end
+
+  private
+  def check_if_member
+    @user = current_user
+    redirect_to groups_path unless @user.groups.include?(@group)
+  end
+
 end
 

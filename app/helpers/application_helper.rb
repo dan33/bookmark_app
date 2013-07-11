@@ -10,4 +10,10 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def is_member?
+    @group = Group.find(params[:group_id])
+    @group.users.any?{|user| user.id == current_user.id}
+  end
+
 end

@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.new(params[:comment])
     @comment.user = current_user
     if @comment.save
-      redirect_to [@group, @commentable], notice: "Comment created."
+      redirect_to group_items_path(@comment.item), notice: "Comment created."
     else
       render :new
     end
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
 private
 
   def load_commentable
-    resource, id = request.path.split('/')[1, 3]
+    resource, id = request.path.split('/')[3, 3]
     @commentable = resource.singularize.classify.constantize.find(id)
   end
 end

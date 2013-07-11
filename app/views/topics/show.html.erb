@@ -6,7 +6,7 @@
     <h3><%= @topic.name %> <small> <%= @topic.description %></small></h3>
   </div>
   <div class="small-4 columns">
-    <%= link_to 'Edit topic', edit_group_topic_path(@group, @topic), :class => 'tiny button'%>
+    <%= link_to 'Edit topic', edit_group_topic_path(@group, @topic), :class => 'tiny button' if @user.groups.include?(@group) %>
   </div>
   </div>
 </div>
@@ -15,10 +15,10 @@
   <div class="small-12 columns">
   <% @topic.items.each do |item| %>
     <div class="small-4 columns content">
-      <i class="pull-right"><%= link_to 'Edit', edit_group_item_path(@group, item) %> </i>
+      <i class="pull-right"><%= link_to 'Edit', edit_group_item_path(@group, item) if @user.groups.include?(@group) %> </i>
         <h4><%= link_to item.title, item.url %></h4>
         <p><%= truncate(item.description, length: 75) %></p>
-        <p><%= link_to 'comments', group_item_path(@group, item) %> <span class="label label-warning"><%= item.comments.count %></span></p>
+        <p><%= link_to 'comments', group_item_path(@group, item) if @user.groups.include?(@group) %></p>
     </div>
   <% end %>
   </div>

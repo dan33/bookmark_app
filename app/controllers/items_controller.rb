@@ -1,7 +1,10 @@
 class ItemsController < ApplicationController
+  before_filter :check_if_member, :except => [:index, :show]
+
   def index
     @items = Item.page(params[:page]).per_page(12).order('created_at DESC')
     @group = Group.find(params[:group_id])
+    @user = current_user
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +18,7 @@ class ItemsController < ApplicationController
     @commentable = @item
     @comments = @commentable.comments
     @comment = Comment.new
+    @user = current_user
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +29,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @group = Group.find(params[:group_id])
+    @user = current_user
 
     respond_to do |format|
       format.html
@@ -35,11 +40,13 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     @group = Group.find(params[:group_id])
+    @user = current_user
   end
 
   def create
     @item = Item.new(params[:item])
     @group = Group.find(params[:group_id])
+    @user = current_user
 
     respond_to do |format|
       if @item.save
@@ -54,6 +61,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+    @user = current_user
 
     respond_to do |format|
       if @item.update_attributes(params[:item])
@@ -74,5 +82,12 @@ class ItemsController < ApplicationController
       format.html { redirect_to group_items_url }
       format.json { head :no_content }
     end
+  end
+
+   private
+  def check_if_member
+    @user = current_user
+    @group = Group.find(params[:group_id])
+    redirect_to groups_path unless @user.groups.include?(@group)
   end
 end

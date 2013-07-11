@@ -2,10 +2,12 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all
+    @user = current_user
   end
 
   def show
     @group = Group.find(params[:id])
+    @user = current_user
   end
 
   def new
