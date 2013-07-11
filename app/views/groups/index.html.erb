@@ -18,7 +18,7 @@
       <h4><%= link_to group.name, group_path(group) %> </h4>
       <p><%= truncate(group.description, length: 95) %></p>
       <% unless group.users.include?(current_user) %>
-      <%= link_to 'Join group', memberships_path(:user_id => @user, :group_id => group), :method => :post, :class => 'tiny button' %>
+      <%= button_to 'Join group', memberships_path(:user_id => @user, :group_id => group), :method => :post, :class => 'tiny button' %>
       <% end %>
     </div>
   <% end %>
