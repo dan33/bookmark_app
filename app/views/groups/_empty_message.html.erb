@@ -2,8 +2,6 @@
   <div class="small-12">
     <h3> Nothing posted yet </h3>
     <p class="lead"> No one has posted anything in this group yet</p>
-    <%= link_to 'Add link', new_group_item_path(@group, @item), :class => 'button' if @user.groups.include?(@group) %>
-    <%= link_to 'Create topic', new_group_topic_path(@group, @topic), :class => 'button' if @user.groups.include?(@group) %>
     <%= link_to 'Join group', memberships_path(:user_id => @user, :group_id => @group), :method => :post, :class => 'button' unless @user.groups.include?(@group) %>
 
   </div>

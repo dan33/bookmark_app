@@ -27,9 +27,10 @@ class TopicsController < ApplicationController
   end
 
   def new
-    @topic = Topic.new
+    @topic = Topic.new(params[:topic])
+    @topic.user = current_user
     @group = Group.find(params[:group_id])
-    @user = current_user
+    @topic.group = Group.find(params[:group_id])
 
     respond_to do |format|
       format.html
