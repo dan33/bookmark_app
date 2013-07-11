@@ -42,6 +42,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new(params[:topic])
     @topic.user = current_user
     @group = Group.find(params[:group_id])
+    @topic.group = Group.find(params[:group_id])
 
     respond_to do |format|
       if @topic.save

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130707025017) do
+ActiveRecord::Schema.define(:version => 20130711024832) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20130707025017) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "slug"
+    t.integer  "group_id"
   end
 
   add_index "topics", ["slug"], :name => "index_topics_on_slug"

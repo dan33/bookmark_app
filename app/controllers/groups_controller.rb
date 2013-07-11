@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    @users = @group.users
 
     respond_to do |format|
       format.html

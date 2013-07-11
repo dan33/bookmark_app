@@ -12,9 +12,10 @@
 #
 
 class Topic < ActiveRecord::Base
-  attr_accessible :user_id, :description, :name
+  attr_accessible :user_id, :description, :name, :group_id
   has_many :items
   belongs_to :user
+  belongs_to :group
 
   extend FriendlyId
   friendly_id :name, use: :slugged

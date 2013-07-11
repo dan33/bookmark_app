@@ -39,6 +39,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(params[:item])
+    @group = Group.find(params[:group_id])
 
     respond_to do |format|
       if @item.save

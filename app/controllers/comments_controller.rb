@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    binding.pry
     @comment = @commentable.comments.new(params[:comment])
     @comment.user = current_user
     if @comment.save
