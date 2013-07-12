@@ -3,7 +3,7 @@
       <%= f.input :title, label: false, :required => true, :as => :text, :input_html => { placeholder: "Title", :rows => 1, :min => 10, :maxlength => 450 } %>
       <%= f.input :url, label: false, :required => true, :as => :text, :input_html => { placeholder: "URL", :rows => 1, :maxlength => 450 } %>
       <%= f.input :description, label: false, :required => true, :as => :text, :input_html => { placeholder: "Description", :rows => 3, :maxlength => 450 } %>
-      <%= f.association :topic, label: false, :required => true %>
+      <%= f.association :topic, :collection => @group.topics, label: false, :required => true %>
       <% f.error :base %>
 
       <%= f.submit nil, :class => 'small button'%>
