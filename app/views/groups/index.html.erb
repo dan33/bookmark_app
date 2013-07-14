@@ -12,15 +12,50 @@
 </div>
 
 <div class="row bottom-padding">
-  <div class="small-12 columns">
-    <% @groups.each do |group| %>
-    <div class="small-4 columns">
-      <h4><%= link_to group.name, group_path(group) %> </h4>
-      <p><%= truncate(group.description, length: 95) %></p>
-      <% unless group.users.include?(current_user) %>
-      <%= button_to 'Join group', memberships_path(:user_id => @user, :group_id => group), :method => :post, :class => 'tiny button' %>
-      <% end %>
+  <% @groups.each do |group| %>
+    <div class="small-6 columns">
+      <div class="small-12 columns panel">
+        <div class="small-7 columns">
+        <%= link_to group.name, group_path(group), :class => 'button tiny' %>
+
+        </div>
+        <div class="small-5 columns">
+          <h6>Topics</h6>
+        </div>
+
+      <div class="small-12 columns"
+        <p><%= truncate(group.description, length: 95) %></p>
+        <hr>
+      </div>
+
+      <% group.items.reverse.take(4).each do |item| %>
+      <div class="small-7 columns">
+        <p><%= link_to item.title, [group, item] %></p>
+      </div>
+      <div class="small-5 columns">
+        <p><%= link_to item.topic.name, [group, item.topic], :class => 'tiny button' %></p>
+      </div>
+    <% end %>
+<hr>
+      <div class="small-12 columns">
+        <ul class="no-bullet inline-list">
+        <div class="small-2 columns">
+          <li><%= link_to 'Links', group_items_path(group) %></li>
+        </div>
+        <div class="small-2 columns">
+          <li><%= link_to 'Topics', group_topics_path(group) %></p>
+        </div>
+        <div class="small-3 columns">
+          <li><%= link_to 'Members', group_users_path(group) %></li>
+        </div>
+        <% unless group.users.include?(current_user) %>
+        <div class="small-5 columns">
+          <li><%= link_to 'Join group', memberships_path(:user_id => @user, :group_id => group), :method => :post, :class => 'small button secondary' %></li>
+        </div>
+        <% end %>
+        </ul>
+      </div>
     </div>
-  <% end %>
   </div>
+    <% end %>
 </div>

@@ -4,6 +4,12 @@ class GroupsController < ApplicationController
   def index
     @groups = Group.all
     @user = current_user
+
+    @groups.each do |group|
+      @topics = group.topics
+      @items = group.items
+      @topics = @topics
+    end
   end
 
   def show
