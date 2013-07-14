@@ -6,14 +6,14 @@
   <div class="small-8 columns">
     <div class="small-8 columns">
       <ul class="no-bullet pull-right">
-        <li>Created <%= @user.topics.count %> topics</li>
-        <li>Posted <%= @user.items.count %> items</li>
+        <li>Created <%= pluralize(@user.topics.count, 'topic') %></li>
+        <li>Posted <%= pluralize(@user.items.count, 'link') %></li>
       </ul>
     </div>
     <div class="small-4 columns">
       <ul class="no-bullet pull-right">
-        <li>Posted <%= @user.comments.count %> comments</li>
-        <li>Belongs to <%= @user.memberships.count %> group</li>
+        <li>Posted <%= pluralize(@user.comments.count, 'comment') %></li>
+        <li>Belongs to <%= pluralize(@user.memberships.count, 'group') %></li>
       </ul>
     </div>
   </div>

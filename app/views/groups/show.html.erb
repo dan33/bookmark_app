@@ -1,41 +1,31 @@
 <%= render 'header' %>
 
 <% if @group.topics.empty? %>
-
   <%= render 'empty_message' %>
-
 <% else %>
 
-<div class="row bottom-padding">
-  <div class="small-2 columns">
-    <h3>Topics</h3>
-      <ul class="no-bullet">
-        <% @group.topics.each do |topic| %>
-        <li><%= link_to topic.name, group_topic_path(@group, topic) %></li>
-        <hr>
-      <% end %>
-      </ul>
-  </div>
-
-<div class="small-9 columns">
-  <h3> Links </h3>
-      <ul class="no-bullet">
-      <% @group.items.each do |item| %>
-        <div class="small-6 columns">
-          <li><%= link_to item.title, item.url %></li>
-          <li><%= truncate(item.description, length: 95) %></li>
-            <ul class="no-bullet inline-list">
-              <li><%= link_to 'comments', group_item_path(@group, item) %></li>
-              <li><%= link_to item.topic.user.name, group_user_path(@group, item.topic.user), :class => 'tiny button' %></li>
-              <li><%= link_to item.topic.name, group_topic_path(@group, item.topic), :class => 'tiny button' %></li>
-            </ul>
-        </div>
-        <li class="divider"></li>
-      <% end %>
-      </ul>
-</div>
-
-</div>
+<div class="row">
+  <table>
+  <thead>
+    <tr>
+      <th>Links</th>
+      <th width="300">About</th>
+      <th width="100">Comments</th>
+      <th width="150">Topics</th>
+      <th width="150">Members</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @group.items.reverse.each do |item| %>
+    <tr>
+      <td><%= link_to item.title, item.url %></td>
+      <td><%= truncate(item.description, length: 95) %></td>
+      <td class="center"><%= link_to item.comments.count, group_item_path(@group, item) %></td>
+      <td><%= link_to item.topic.name, group_topic_path(@group, item.topic), :class => 'tiny button' %></td>
+      <td><%= link_to item.topic.user.name, group_user_path(@group, item.topic.user), :class => 'tiny button' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <% end %>
-

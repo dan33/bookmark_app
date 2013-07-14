@@ -6,15 +6,16 @@
     <div class="small-4 columns">
       <ul class="no-bullet">
         <li><h4><%= link_to user.name, group_user_path(@group, user) %></h4></li>
-        <li>Created <%= user.topics.count %> topic</li>
-        <li>Posted <%= user.items.count %> items</li>
-        <li>Belongs to <%= user.memberships.count %> group</li>
+        <li>Created <%= pluralize(user.topics.count, 'topic') %></li>
+        <li>Posted <%= pluralize(user.items.count, 'item') %></li>
+        <li>Belongs to <%= pluralize(user.memberships.count, 'group') %></li>
       </ul>
     </div>
   <% end %>
   </div>
 
   <div class="small-12 columns">
+    <hr>
     <%= link_to "Back to #{@group.name}", @group %>
   </div>
 </div>

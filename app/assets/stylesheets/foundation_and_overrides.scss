@@ -37,8 +37,16 @@ $em-base: 16px !default;
 
 $default-float: left;
 
+// Colors
+
+$primary-color: #01A4A4;
+$secondary-color: #F18D05;
+$black: #3B3B3D;
+// $alert-color: #c60f13;
+// $success-color: #5da423;
+
 $body-bg: #f1f1f1;
-// $body-font-color: #222;
+$body-font-color: $black;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
@@ -50,13 +58,6 @@ $body-bg: #f1f1f1;
 // Text direction settings
 
 // $text-direction: ltr;
-
-// Colors
-
-$primary-color: #E54028;
-$secondary-color: #01A4A4;
-// $alert-color: #c60f13;
-// $success-color: #5da423;
 
 // Make sure border radius matches unless we want it different.
 
@@ -149,7 +150,7 @@ $global-radius: 0px;
 // $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $header-font-weight: bold;
 // $header-font-style: normal;
-// $header-font-color: #222;
+$header-font-color: $black;
 // $header-line-height: 1.4;
 // $header-top-margin: .2em;
 // $header-bottom-margin: .5em;
@@ -196,9 +197,10 @@ $global-radius: 0px;
 
 // Anchors
 
-// $anchor-text-decoration: none;
-// $anchor-font-color: $primary-color;
-// $anchor-font-color-hover: darken($primary-color, 5%);
+$anchor-text-decoration: none;
+$anchor-font-color: $black;
+$anchor-font-color-hover: darken($primary-color, 5%);
+
 
 // <hr> element
 
@@ -1222,7 +1224,7 @@ $sub-nav-active-bg: $primary-color;
 
 // Background color for the top bar
 
-$topbar-bg: $primary-color !default;
+$topbar-bg: $secondary-color !default;
 
 // Height and margin
 
