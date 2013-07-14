@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_filter :check_if_member, :only => [:edit, :update, :destroy]
 
   def index
     @groups = Group.all
@@ -14,53 +15,47 @@ class GroupsController < ApplicationController
     @group = Group.new
     @users = @group.users
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @group }
-    end
   end
 
   def edit
-    @group = Group.find(params[:id])
+    @group = Group.find_by_slug(params[:id])
   end
 
   def create
     @group = Group.new(params[:group])
 
-    respond_to do |format|
       if @group.save
-        format.html { redirect_to groups_url }
-        format.json { render json: @group, status: :created, location: @group }
+        redirect_to group_path(@group)
       else
-        format.html { render action: "new" }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   def update
     @user = current_user
-    @group = Group.find(params[:id])
+    @group = Group.find_by_slug(params[:id])
 
-    respond_to do |format|
       if @group.update_attributes(params[:group])
-        format.html { redirect_to groups_url }
-        format.json { head :no_content }
+        redirect_to group_path(@group)
       else
-        format.html { render action: "edit" }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   def destroy
-    @group = Group.find(params[:id])
-    @group.destroy
-
-    respond_to do |format|
-      format.html { redirect_to groups_url }
-      format.json { head :no_content }
-    end
+    @group = Group.find_by_slug(params[:id])
+      if @group.items.empty? && @group.topics.empty?
+        @group.destroy
+        redirect_to groups_path
+      else
+        render :edit
+      end
   end
 
+  private
+  def check_if_member
+    @user = current_user
+    @group = Group.find_by_slug(params[:id])
+    redirect_to groups_path unless @user.groups.include?(@group)
+  end
 end

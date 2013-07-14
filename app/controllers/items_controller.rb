@@ -1,10 +1,18 @@
 class ItemsController < ApplicationController
   before_filter :check_if_member, :except => [:index, :show]
+  before_filter :get_group, :get_user
+
+
+  def get_group
+    @group = Group.find(params[:group_id])
+  end
+
+  def get_user
+    @user = current_user
+  end
 
   def index
     @items = Item.page(params[:page]).per_page(12).order('created_at DESC')
-    @group = Group.find(params[:group_id])
-    @user = current_user
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,12 +21,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:group_id])
     @item = Item.find(params[:id])
     @commentable = @item
     @comments = @commentable.comments
     @comment = Comment.new
-    @user = current_user
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,8 +34,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @group = Group.find(params[:group_id])
-    @user = current_user
 
     respond_to do |format|
       format.html
@@ -39,14 +43,10 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @group = Group.find(params[:group_id])
-    @user = current_user
   end
 
   def create
     @item = Item.new(params[:item])
-    @group = Group.find(params[:group_id])
-    @user = current_user
 
     respond_to do |format|
       if @item.save
@@ -61,7 +61,6 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @user = current_user
 
     respond_to do |format|
       if @item.update_attributes(params[:item])

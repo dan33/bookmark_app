@@ -1,8 +1,12 @@
 class TopicsController < ApplicationController
   before_filter :check_if_member, :except => [:index, :show]
+  before_filter :get_group
+
+  def get_group
+    @group = Group.find(params[:group_id])
+  end
 
   def index
-    @group = Group.find(params[:group_id])
     @topics = Topic.order('created_at DESC limit 15')
     @items = Item.joins(:topic).order('created_at DESC limit 12')
     @comments = Comment.order('created_at DESC limit 15')
@@ -16,7 +20,6 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:group_id])
     @topic = Topic.find(params[:id])
     @user = current_user
 
@@ -29,7 +32,6 @@ class TopicsController < ApplicationController
   def new
     @topic = Topic.new(params[:topic])
     @topic.user = current_user
-    @group = Group.find(params[:group_id])
     @topic.group = Group.find(params[:group_id])
 
     respond_to do |format|
@@ -39,14 +41,12 @@ class TopicsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:group_id])
     @topic = Topic.find(params[:id])
   end
 
   def create
     @topic = Topic.new(params[:topic])
     @topic.user = current_user
-    @group = Group.find(params[:group_id])
     @topic.group = Group.find(params[:group_id])
 
     respond_to do |format|
@@ -62,7 +62,6 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
-    @group = Group.find(params[:group_id])
     @user = current_user
 
     respond_to do |format|
@@ -79,7 +78,6 @@ class TopicsController < ApplicationController
   def destroy
     @topic = Topic.find(params[:id])
     @topic.destroy
-    @group = Group.find(params[:group_id])
     @user = current_user
 
     respond_to do |format|

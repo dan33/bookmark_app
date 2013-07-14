@@ -25,12 +25,13 @@ class UsersController < ApplicationController
   end
 
   def profile
+    @groups = current_user.groups.order(:name)
     @user = current_user
-    @group = @user.groups.first
-    @groups = current_user.groups
-    @topics = Topic.order('created_at DESC limit 15')
-    @items = Item.joins(:topic).order('created_at DESC limit 12')
-    @comments = Comment.order('created_at DESC limit 15')
+
+  @user.groups.each do |group|
+    @topics = group.topics
+    @items = group.items
+  end
 
   end
 

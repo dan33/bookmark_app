@@ -31,32 +31,34 @@
 
     <% else %>
 
+<div class ="row">
+
     <div class="small-3 columns">
-      <h4> Groups </h4>
-      <% @user.groups.each do |group| %>
-      <p><%= link_to group.name, group %></p>
-      <% end %>
-    </div>
-    <div class="small-3 columns">
-      <h4> Topics </h4>
-      <% @user.topics.each do |topic| %>
-      <p><%= link_to topic.name, group_topic_path(@group, topic) %></p>
-      <% end %>
-    </div>
-    <div class="small-3 columns">
-      <h4> Links </h4>
-    <% @user.items.each do |item| %>
-      <p><%= link_to item.title, group_item_path(@group, item) %></p>
-    <% end %>
-    </div>
-    <div class="small-3 columns">
-      <h4> Comments </h4>
-    <% @user.comments.each do |comment| %>
-      <p><%= comment.content %></p>
-      <hr>
+      <% @groups.each do |group| %>
+      <p><%= link_to group.name, group_path(group) %></p>
     <% end %>
     </div>
 
-  </div>
+    <div class="small-3 columns">
+      <% @user.topics.each do |topic| %>
+      <p><%= link_to topic.name, group_topic_path(topic.group.slug, topic) %></p>
+    <% end %>
+    </div>
+
+    <div class="small-3 columns">
+      <% @user.items.each do |item| %>
+      <p class><%= link_to item.title, group_item_path(item.topic.group.slug, item) %></p>
+      <% end %>
+    </div>
+
+    <div class="small-3 columns">
+      <% @user.items.each do |item| %>
+      <p><% item.comments.each do |comment| %></p>
+      <p class="comments"><%= comment.content %></p>
+      <%= link_to item.title, group_item_path(item.topic.group.slug, item), :class => 'tiny button' %>
+      <hr>
+      <% end %>
+      <% end %>
+    </div>
+
   <% end %>
-</div>
