@@ -9,14 +9,14 @@
     <div class="small-8 columns">
       <div class="small-8 columns">
         <ul class="no-bullet pull-right">
-          <li>Created <%= pluralize(@user.topics.count, 'topic') %></li>
-        <li>Posted <%= pluralize(@user.items.count, 'link') %></li>
+          <li><span class="label">Created <%= pluralize(@user.topics.count, 'topic') %></span></li>
+        <li><span class="label">Posted <%= pluralize(@user.items.count, 'link') %></span></li>
       </ul>
     </div>
     <div class="small-4 columns">
       <ul class="no-bullet pull-right">
-        <li>Posted <%= pluralize(@user.comments.count, 'comment') %></li>
-        <li>Belongs to <%= pluralize(@user.memberships.count, 'group') %></li>
+        <li><span class="label">Posted <%= pluralize(@user.comments.count, 'comment') %></span></li>
+        <li><span class="label">Belongs to <%= pluralize(@user.memberships.count, 'group') %></span></li>
         </ul>
       </div>
     </div>

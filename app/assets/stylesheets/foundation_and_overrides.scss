@@ -176,7 +176,7 @@ $header-font-color: $black;
 // <small> styling
 
 // $small-font-size: 60%;
-// $small-font-color: lighten($header-font-color, 20%);
+$small-font-color: $black;
 
 // Paragraphs
 
@@ -873,7 +873,7 @@ $button-border-width: 0px;
 
 $panel-bg: darken(#fff, 5%);
 $panel-border-style: solid;
-$panel-border-size: 1px;
+$panel-border-size: 0px;
 
 // Control how much we darken things on hover
 

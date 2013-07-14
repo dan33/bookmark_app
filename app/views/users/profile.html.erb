@@ -6,14 +6,14 @@
   <div class="small-8 columns">
     <div class="small-8 columns">
       <ul class="no-bullet pull-right">
-        <li>Created <%= pluralize(@user.topics.count, 'topic') %></li>
-        <li>Posted <%= pluralize(@user.items.count, 'link') %></li>
+        <li><span class="label">Created <%= pluralize(@user.topics.count, 'topic') %></span></li>
+        <li><span class="label">Posted <%= pluralize(@user.items.count, 'link') %></span></li>
       </ul>
     </div>
     <div class="small-4 columns">
       <ul class="no-bullet pull-right">
-        <li>Posted <%= pluralize(@user.comments.count, 'comment') %></li>
-        <li>Belongs to <%= pluralize(@user.memberships.count, 'group') %></li>
+        <li><span class="label">Posted <%= pluralize(@user.comments.count, 'comment') %></span></li>
+        <li><span class="label">Belongs to <%= pluralize(@user.memberships.count, 'group') %></span></li>
       </ul>
     </div>
   </div>
@@ -31,27 +31,31 @@
 
     <% else %>
 
-<div class ="row">
+<div class ="row bottom-padding">
 
     <div class="small-3 columns">
+      <h4> Groups </h4>
       <% @groups.each do |group| %>
       <p><%= link_to group.name, group_path(group) %></p>
     <% end %>
     </div>
 
     <div class="small-3 columns">
+      <h4> Topics </h4>
       <% @user.topics.each do |topic| %>
       <p><%= link_to topic.name, group_topic_path(topic.group.slug, topic) %></p>
     <% end %>
     </div>
 
     <div class="small-3 columns">
+      <h4> Links </h4>
       <% @user.items.each do |item| %>
       <p class><%= link_to item.title, group_item_path(item.topic.group.slug, item) %></p>
       <% end %>
     </div>
 
     <div class="small-3 columns">
+      <h4> Comments </h4>
       <% @user.items.each do |item| %>
       <p><% item.comments.each do |comment| %></p>
       <p class="comments"><%= comment.content %></p>

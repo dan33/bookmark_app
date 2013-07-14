@@ -4,7 +4,7 @@
   <%= render 'empty_message' %>
 <% else %>
 
-<div class="row">
+<div class="row bottom-padding">
   <table>
   <thead>
     <tr>
@@ -18,7 +18,7 @@
   <tbody>
     <% @group.items.reverse.each do |item| %>
     <tr>
-      <td><%= link_to item.title, item.url %></td>
+      <td><%= link_to item.title, [@group, item] %></td>
       <td><%= truncate(item.description, length: 95) %></td>
       <td class="center"><%= link_to item.comments.count, group_item_path(@group, item) %></td>
       <td><%= link_to item.topic.name, group_topic_path(@group, item.topic), :class => 'tiny button' %></td>
