@@ -13,11 +13,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.page(params[:page]).per_page(12).order('created_at DESC')
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @items }
-    end
   end
 
   def show
@@ -25,20 +20,10 @@ class ItemsController < ApplicationController
     @commentable = @item
     @comments = @commentable.comments
     @comment = Comment.new
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @item }
-    end
   end
 
   def new
     @item = Item.new
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @item }
-    end
   end
 
   def edit
@@ -47,43 +32,29 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(params[:item])
-
-    respond_to do |format|
       if @item.save
-        format.html { redirect_to group_items_url }
-        format.json { render json: @item, status: :created, location: @item }
+        redirect_to [@group, @item]
       else
-        format.html { render action: "new" }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   def update
     @item = Item.find(params[:id])
-
-    respond_to do |format|
       if @item.update_attributes(params[:item])
-        format.html { redirect_to group_items_url }
-        format.json { head :no_content }
+        redirect_to [@group, @item]
       else
-        format.html { render action: "edit" }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-
-    respond_to do |format|
-      format.html { redirect_to group_items_url }
-      format.json { head :no_content }
-    end
+      redirect_to group_items_url
   end
 
-   private
+  private
   def check_if_member
     @user = current_user
     @group = Group.find(params[:group_id])

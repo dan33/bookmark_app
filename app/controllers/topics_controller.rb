@@ -12,32 +12,17 @@ class TopicsController < ApplicationController
     @comments = Comment.order('created_at DESC limit 15')
     @users = User.order('created_at DESC limit 15')
     @user = current_user
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @topics }
-    end
   end
 
   def show
     @topic = Topic.find(params[:id])
     @user = current_user
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @topic }
-    end
   end
 
   def new
     @topic = Topic.new(params[:topic])
     @topic.user = current_user
     @topic.group = Group.find(params[:group_id])
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @topic }
-    end
   end
 
   def edit
@@ -48,42 +33,28 @@ class TopicsController < ApplicationController
     @topic = Topic.new(params[:topic])
     @topic.user = current_user
     @topic.group = Group.find(params[:group_id])
-
-    respond_to do |format|
       if @topic.save
-        format.html { redirect_to group_topics_url }
-        format.json { render json: @topic, status: :created, location: @topic }
+         redirect_to [@group, @topic]
       else
-        format.html { render action: "new" }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   def update
     @topic = Topic.find(params[:id])
     @user = current_user
-
-    respond_to do |format|
       if @topic.update_attributes(params[:topic])
-        format.html { redirect_to group_topics_url }
-        format.json { head :no_content }
+         redirect_to [@group, @topic]
       else
-        format.html { render action: "edit" }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   def destroy
     @topic = Topic.find(params[:id])
-    @topic.destroy
     @user = current_user
-
-    respond_to do |format|
-      format.html { redirect_to group_topics_url }
-      format.json { head :no_content }
-    end
+    @topic.destroy
+    redirect_to group_topics_url
   end
 
   private
