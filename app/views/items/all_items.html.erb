@@ -1,0 +1,17 @@
+<div class ="row bottom-padding">
+  <div class="small-12 columns">
+      <h3> Links </h3>
+      <hr>
+      <% @items.each do |item| %>
+      <div class="small-4 columns">
+      <p class><%= link_to item.title, group_item_path(item.topic.group.slug, item) %></p>
+      <p class><%= truncate(item.description, :length => 95) %></p>
+      <ul class="no-bullet inline-list">
+              <li><%= link_to 'comments', group_item_path(item.topic.group.slug, item) %></li>
+              <li><%= link_to item.topic.user.name, group_user_path(item.topic.group.slug, item.topic.user), :class => 'tiny button' %></li>
+              <li><%= link_to item.topic.name, group_topic_path(item.topic.group.slug, item.topic), :class => 'tiny button' %></li>
+            </ul>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
-  before_filter :check_if_member, :except => [:index, :show]
-  before_filter :get_group
+  before_filter :check_if_member, :except => [:index, :show, :all_topics]
+  before_filter :get_group, :except => :all_topics
 
   def get_group
     @group = Group.find(params[:group_id])
@@ -12,6 +12,11 @@ class TopicsController < ApplicationController
     @comments = Comment.order('created_at DESC limit 15')
     @users = User.order('created_at DESC limit 15')
     @user = current_user
+  end
+
+  def all_topics
+    @topics = Topic.all
+    @items = Item.all
   end
 
   def show

@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_filter :check_if_member, :except => [:index, :show]
-  before_filter :get_group, :get_user
+  before_filter :check_if_member, :except => [:index, :show, :all_items]
+  before_filter :get_group, :get_user, :except => :all_items
 
 
   def get_group
@@ -20,6 +20,10 @@ class ItemsController < ApplicationController
     @commentable = @item
     @comments = @commentable.comments
     @comment = Comment.new
+  end
+
+  def all_items
+    @items = Item.all
   end
 
   def new

@@ -4,14 +4,11 @@
   <div class="small-12 columns">
   <% @group.topics.each do |topic| %>
   <div class="small-4 columns">
+    <hr>
     <ul class="no-bullet">
-      <li><h4><%= link_to topic.name, group_topic_path(@group, topic) %> <small> <em><%= link_to 'Edit', edit_group_topic_path(@group, topic) if @user.groups.include?(@group) %></em></small></h4></li>
+      <li><%= link_to topic.name, group_topic_path(@group, topic), :class => 'button tiny' %><em> x<%= topic.items.count %></em></li>
       <li><p><%= truncate(topic.description, length: 95) %><p></li>
-        <ul class="no-bullet inline-list">
-          <li><%= link_to topic.user.name, group_user_path(@group, topic.user), :class => 'tiny button' %></li>
-          <li><span class="label"><%= pluralize(topic.items.count, 'link') %></span></li>
-        </ul>
-    </ul>
+      </ul>
   </div>
   <% end %>
 </div>

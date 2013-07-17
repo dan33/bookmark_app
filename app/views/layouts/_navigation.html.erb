@@ -8,14 +8,14 @@
     <ul class="right">
       <% if user_signed_in? %>
         <li class="divider"></li>
-        <li class="has-dropdown"><%= link_to 'Groups', groups_path %>
-        <ul class="dropdown"><li class="title back js-generated">
-          <% @groups.each do |group| %>
-          <li><%= link_to group.name, group_path(group) %></li>
-          <% end %>
-        </ul>
-
-        <li class="divider"></li>
+      <li class="<%= 'active' if current_page? '/groups' %>"><%= link_to 'Groups', '/groups' %></li>
+      <li class="divider"></li>
+      <li class="<%= 'active' if current_page? '/topics' %>"><%= link_to 'Topics', '/topics' %></li>
+      <li class="divider"></li>
+      <li class="<%= 'active' if current_page? '/items' %>"><%= link_to 'Links', '/items' %></li>
+      <li class="divider"></li>
+      <li class="<%= 'active' if current_page? '/users' %>"><%= link_to 'Members', '/members' %></li>
+      <li class="divider"></li>
         <li class="has-dropdown"><%= link_to current_user.name, root_path %>
         <ul class="dropdown"><li class="title back js-generated">
           <li><%= link_to "Settings", edit_user_registration_path %></li>
