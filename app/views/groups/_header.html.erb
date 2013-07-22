@@ -1,16 +1,10 @@
-<div class="row">
-  <div class="small-8 columns">
+<div class="large-12 header">
+  <div class="large-8 columns">
       <h3><%= link_to @group.name, @group %> <small><%= @group.description %></small></h3>
   </div>
-  <div class="small-4 columns">
+  <div class="large-4 columns">
       <%= link_to 'Add link', new_group_item_path(@group, @item), :class => 'button secondary' if @user.groups.include?(@group) %>
       <%= link_to 'Create topic', new_group_topic_path(@group, @topic), :class => 'button secondary' if @user.groups.include?(@group) %>
-      <dl class="sub-nav">
-        <dt>Filter:</dt>
-        <dd class="<%= 'active' if current_page? group_topics_path(@group) %>"><%= link_to 'Topics', group_topics_path(@group) %></dd>
-        <dd class="<%= 'active' if current_page? group_items_path(@group) %>"><%= link_to 'Links', group_items_path(@group) %></dd>
-        <dd class="<%= 'active' if current_page? group_users_path(@group) %>"><%= link_to 'Members', group_users_path(@group) %></dd>
-      </dl>
   </div>
   <hr>
 </div>

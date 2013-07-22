@@ -1,27 +1,25 @@
 <%= render 'groups/header' %>
 
-<div class="row">
-  <div class="small-12 columns">
-    <h4><%= @topic.name %> <small> <em><%= link_to 'Edit', edit_group_topic_path(@group, @topic) if @user.groups.include?(@group) %></em></small></h4>
-      <%= @topic.description %>
-      <hr>
-  </div>
-</div>
-
-<div class="row">
-  <div class="small-12 columns">
-  <% @topic.items.each do |item| %>
-    <div class="small-4 columns content">
-      <h4><%= link_to item.title, item.url %> <small> <em><%= link_to 'Edit', edit_group_item_path(@group, item) if @user.groups.include?(@group) %></em></small></h4>
-      <p><%= truncate(item.description, length: 75) %></p>
-      <p><%= link_to 'comments', group_item_path(@group, item) if @user.groups.include?(@group) %></p>
+  <div class="large-12 columns">
+    <div class="large-2 columns">
+    <%= render 'layouts/topics' %>
     </div>
-  <% end %>
-  </div>
-</div>
 
-<div class="row bottom-padding">
+    <div class="large-10 columns">
+      <h4><%= @topic.name %> <small> <em><%= link_to 'Edit', edit_group_topic_path(@group, @topic) if @user.groups.include?(@group) %></em></small></h4>
+    <% @topic.items.each do |item| %>
+      <div class="large-4 columns content">
+        <p><%= link_to item.title, item.url %> <small> <em><%= link_to 'Edit', edit_group_item_path(@group, item) if @user.groups.include?(@group) %></em></small></p>
+        <p><%= truncate(item.description, length: 75) %></p>
+        <ul class="no-bullet inline-list">
+          <li><%= link_to 'comments', group_item_path(@group, item) if @user.groups.include?(@group) %></li>
+          <li><%= link_to item.topic.user.name, group_user_path(@group, item.topic.user), :class => 'tiny button' %></li>
+        </ul>
+      </div>
+    <% end %>
+    </div>
+
+
   <div class="small-12">
   <%= render 'back' %>
   </div>
-</div>

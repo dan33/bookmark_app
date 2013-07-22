@@ -14,11 +14,6 @@ class TopicsController < ApplicationController
     @user = current_user
   end
 
-  def all_topics
-    @topics = Topic.all
-    @items = Item.all
-  end
-
   def show
     @topic = Topic.find(params[:id])
     @user = current_user

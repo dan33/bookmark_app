@@ -22,10 +22,6 @@ class ItemsController < ApplicationController
     @comment = Comment.new
   end
 
-  def all_items
-    @items = Item.all
-  end
-
   def new
     @item = Item.new
   end

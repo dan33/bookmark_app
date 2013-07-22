@@ -2,13 +2,13 @@
 #
 # Table name: items
 #
-#  id          :integer          not null, primary key
+#  id          :integer          primary key
 #  title       :string(255)
 #  url         :string(255)
 #  description :string(255)
 #  topic_id    :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  created_at  :timestamp        not null
+#  updated_at  :timestamp        not null
 #  slug        :string(255)
 #
 

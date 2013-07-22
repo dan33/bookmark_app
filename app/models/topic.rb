@@ -2,13 +2,14 @@
 #
 # Table name: topics
 #
-#  id          :integer          not null, primary key
+#  id          :integer          primary key
 #  name        :string(255)
 #  description :string(255)
 #  user_id     :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  created_at  :timestamp        not null
+#  updated_at  :timestamp        not null
 #  slug        :string(255)
+#  group_id    :integer
 #
 
 class Topic < ActiveRecord::Base
