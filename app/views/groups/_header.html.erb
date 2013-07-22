@@ -1,10 +1,6 @@
-<div class="large-12 header">
+<div class="large-12 columns header">
   <div class="large-8 columns">
       <h3><%= link_to @group.name, @group %> <small><%= @group.description %></small></h3>
-  </div>
-  <div class="large-4 columns">
-      <%= link_to 'Add link', new_group_item_path(@group, @item), :class => 'button secondary' if @user.groups.include?(@group) %>
-      <%= link_to 'Create topic', new_group_topic_path(@group, @topic), :class => 'button secondary' if @user.groups.include?(@group) %>
   </div>
   <hr>
 </div>

@@ -1,9 +1,9 @@
-<div class="row">
-  <div class="small-8 columns">
+<div class="large-12 columns">
+  <div class="large-8 columns">
     <h3> Groups </h3>
     <%= link_to 'New group', new_group_path(@group), :class => 'small button'%>
   </div>
-  <div class="small-4 columns">
+  <div class="large-4 columns">
     <div class="panel callout radius">
       <p>You can browse any group, but to create topics, post links and comment, you need to join.</p>
     </div>
@@ -11,45 +11,45 @@
   <hr>
 </div>
 
-<div class="row bottom-padding">
+<div class="large-12 columns">
   <% @groups.each do |group| %>
-    <div class="small-6 columns">
-      <div class="small-12 columns panel">
-        <div class="small-7 columns">
+    <div class="large-6 columns">
+      <div class="large-12 columns panel">
+        <div class="large-7 columns">
         <%= link_to group.name, group_path(group), :class => 'button tiny' %>
 
         </div>
-        <div class="small-5 columns">
+        <div class="large-5 columns">
           <h6>Topics</h6>
         </div>
 
-      <div class="small-12 columns"
+      <div class="large-12 columns">
         <p><%= truncate(group.description, length: 95) %></p>
         <hr>
       </div>
 
       <% group.items.reverse.take(4).each do |item| %>
-      <div class="small-7 columns">
+      <div class="large-7 columns">
         <p><%= link_to item.title, [group, item] %></p>
       </div>
-      <div class="small-5 columns">
+      <div class="large-5 columns">
         <p><%= link_to item.topic.name, [group, item.topic], :class => 'tiny button' %></p>
       </div>
     <% end %>
 <hr>
-      <div class="small-12 columns">
+      <div class="large-12 columns">
         <ul class="no-bullet inline-list">
-        <div class="small-2 columns">
+        <div class="large-2 columns">
           <li><%= link_to 'Links', group_items_path(group) %><span class="round label"><%= group.items.count %></span></li>
         </div>
-        <div class="small-2 columns">
+        <div class="large-2 columns">
           <li><%= link_to 'Topics', group_topics_path(group) %><span class="round label"><%= group.topics.count %></span></p>
         </div>
-        <div class="small-3 columns">
+        <div class="large-3 columns">
           <li><%= link_to 'Members', group_users_path(group) %><span class="round label"><%= group.users.count %></span></li>
         </div>
         <% unless group.users.include?(current_user) %>
-        <div class="small-5 columns">
+        <div class="large-5 columns">
           <li><%= link_to 'Join group', memberships_path(:user_id => @user, :group_id => group), :method => :post, :class => 'small button secondary' %></li>
         </div>
         <% end %>

@@ -1,7 +1,7 @@
 <ul class="no-bullet">
-      <%= link_to 'Create topic', new_group_topic_path(@group, @topic), :class => 'button secondary small' if @user.groups.include?(@group) %>
+      <%= link_to 'Create topic', new_group_topic_path(@group, @topic), :class => 'button small' if @user.groups.include?(@group) %>
       <% @group.topics.order(:name).each do |topic| %>
-      <li><%= link_to topic.name, [@group, topic] %></li>
+      <li class="<%= 'highlighted' if current_page? [@group, topic] %>"><%= link_to topic.name, [@group, topic] %><em> x<%= topic.items.count %></em></li>
       <hr>
       <% end %>
     </ul>
