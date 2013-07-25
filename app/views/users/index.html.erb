@@ -1,9 +1,12 @@
 <%= render 'groups/header' %>
 
-<div class="row bottom-padding">
-  <div class="small-12 columns">
+<div class="small-12 columns">
+  <div class="large-2 columns">
+    <%= render 'layouts/users' %>
+  </div>
+  <div class="large-10 columns">
   <% @group.users.each do |user| %>
-    <div class="small-4 columns">
+    <div class="small-3 columns">
       <ul class="no-bullet">
         <li><h4><%= link_to user.name, group_user_path(@group, user) %></h4></li>
         <li>Created <%= pluralize(user.topics.count, 'topic') %></li>
@@ -12,10 +15,7 @@
       </ul>
     </div>
   <% end %>
-  </div>
-
-  <div class="small-12 columns">
-    <hr>
+  <hr>
     <%= link_to "Back to #{@group.name}", @group %>
   </div>
 </div>

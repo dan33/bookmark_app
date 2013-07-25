@@ -14,8 +14,9 @@ end
   resources :groups do
     resources :topics
     resources :users
-    resources :items do
+    resources :items, :path => 'links' do
       resources :comments
     end
   end
+
 end

@@ -20,7 +20,7 @@ class TopicsController < ApplicationController
   end
 
   def new
-    @topic = Topic.new(params[:topic])
+    @topic = Topic.new
     @topic.user = current_user
     @topic.group = Group.find(params[:group_id])
   end
