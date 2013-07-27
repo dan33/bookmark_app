@@ -1,8 +1,0 @@
-<ul class="no-bullet">
-  <li class="<%= 'highlighted' if current_page? group_users_path(@group) %>"><%= link_to 'All users', group_users_path(@group) %></li>
-  <hr>
-  <% @group.users.order(:name).each do |user| %>
-  <li class="<%= 'highlighted' if current_page? [@group, user] %>"><%= link_to user.name, [@group, user] %></li>
-  <hr>
-  <% end %>
-</ul>
