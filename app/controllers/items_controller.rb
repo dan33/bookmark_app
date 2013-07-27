@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(params[:item])
       if @item.save
-        redirect_to [@group, @item]
+        redirect_to [@group]
       else
         render :new
       end

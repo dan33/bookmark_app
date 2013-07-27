@@ -1,0 +1,10 @@
+<ul class="no-bullet">
+      <%= link_to 'Create topic', new_group_topic_path(@group), :class => 'button small', :remote => 'true' if @user.groups.include?(@group) %>
+      <li id="new_topic"></li>
+      <li class="<%= 'highlighted' if current_page? group_items_path(@group) %>"><%= link_to 'All links', group_items_path(@group) %></li>
+      <hr>
+      <% @group.topics.order(:name).each do |topic| %>
+      <li class="<%= 'highlighted' if current_page? [@group, topic] %>"><%= link_to topic.name, [@group, topic] %><em> x<%= topic.items.count %></em></li>
+      <hr>
+      <% end %>
+    </ul>

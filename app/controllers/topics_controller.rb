@@ -54,7 +54,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @user = current_user
     @topic.destroy
-    redirect_to group_topics_url
+    redirect_to [@group]
   end
 
   private
