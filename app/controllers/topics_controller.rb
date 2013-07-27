@@ -1,10 +1,5 @@
 class TopicsController < ApplicationController
   before_filter :check_if_member, :except => [:index, :show]
-  before_filter :get_group
-
-  def get_group
-    @group = Group.find(params[:group_id])
-  end
 
   def index
     @topics = Topic.order('created_at DESC limit 15')

@@ -7,7 +7,6 @@ class MembershipsController < ApplicationController
   def create
     @membership = Membership.new
     @membership.user = current_user
-    @group = Group.find(params[:group_id])
     @membership.group = Group.find(params[:group_id])
       if @membership.save
         redirect_to [@group]
@@ -19,10 +18,9 @@ class MembershipsController < ApplicationController
   def destroy
     @membership = Membership.find(params[:id])
     @membership.user = current_user
-    @group = Group.find(params[:group_id])
     @membership.group = @group
     @membership.destroy
-    redirect_to group_path(@group)
+    redirect_to [@group]
   end
 
 end

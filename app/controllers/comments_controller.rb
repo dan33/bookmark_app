@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @group = Group.find(params[:group_id])
     @comment = @commentable.comments.new(params[:comment])
     @comment.user = current_user
     if @comment.save
@@ -20,8 +19,7 @@ class CommentsController < ApplicationController
     end
   end
 
-private
-
+  private
   def load_commentable
     resource, id = request.path.split('/')[3, 3]
     @commentable = resource.singularize.classify.constantize.find(id)

@@ -1,11 +1,6 @@
 class ItemsController < ApplicationController
   before_filter :check_if_member, :except => [:index, :show]
-  before_filter :get_group, :get_user, :except => :all_items
-
-
-  def get_group
-    @group = Group.find(params[:group_id])
-  end
+  before_filter :get_user
 
   def get_user
     @user = current_user
@@ -51,7 +46,7 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-      redirect_to group_items_url
+      redirect_to [@group]
   end
 
   private

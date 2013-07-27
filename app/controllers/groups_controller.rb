@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_filter :check_if_member, :only => [:edit, :update, :destroy]
+  skip_before_filter :get_group
 
   def index
     @groups = Group.all
