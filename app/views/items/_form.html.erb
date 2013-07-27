@@ -6,5 +6,5 @@
       <%= f.association :topic, :collection => @group.topics, label: false, :required => true %>
       <% f.error :base %>
       <%= f.submit nil, :class => 'small button'%>
-      <li class='cancel_item button small'>Cancel</li>
+      <%= link_to 'Cancel', group_path(@group), :remote => true, :class => 'cancel_item small button' %>
 <% end %>

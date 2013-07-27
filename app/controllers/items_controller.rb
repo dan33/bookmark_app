@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_filter :check_if_member, :except => [:index, :show, :all_items]
+  before_filter :check_if_member, :except => [:index, :show]
   before_filter :get_group, :get_user, :except => :all_items
 
 

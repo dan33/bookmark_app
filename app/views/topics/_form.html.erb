@@ -8,6 +8,6 @@
 
   <div class="actions">
     <%= f.submit nil, :class => 'small button'%>
-    <li class='cancel_topic button small'>Cancel</li>
+    <%= link_to 'Cancel', group_path(@group), :remote => true, :class => 'cancel_topic small button' %>
   </div>
 <% end %>
