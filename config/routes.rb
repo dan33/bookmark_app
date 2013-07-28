@@ -10,6 +10,8 @@ Bookmark::Application.routes.draw do
   end
 end
 
+  get '/users/profile' => 'users#profile'
+
   resources :memberships
   resources :groups do
     resources :topics

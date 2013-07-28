@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_filter :get_group, :only => [:profile]
 
   def index
     @topics = Topic.order('created_at DESC limit 15')
@@ -13,7 +14,6 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @groups = current_user.groups.order(:name)
     @user = current_user
   end
 

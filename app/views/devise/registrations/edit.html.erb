@@ -1,5 +1,4 @@
-<div class="row bottom-padding">
-<div class="small-12 columns">
+<div class="large-12 columns">
   <h2> Settings </h2>
   <h4>Edit profile</h4>
 </div>
@@ -7,8 +6,7 @@
     <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
       <%= f.error_notification %>
 
-      <div class="small-12 columns">
-        <div class="small-4 columns">
+      <div class="large-4 columns">
         <%= f.input :name, label: false, :required => true, :autofocus => true, :input_html => { placeholder: "Name" } %>
         <%= f.input :email, label: false, :required => true, :input_html => { placeholder: "Email" } %>
 
@@ -21,15 +19,12 @@
         <%= f.input :current_password, :required => true, label: false, :input_html => { placeholder: "Current password to confirm your changes" }%>
         <% f.error :base %>
 
-        <%= f.button :submit, "Update", :class => 'button' %>
+        <%= f.button :submit, "Update", :class => 'small button' %>
         <%= link_to 'Cancel', root_path, :class => 'small button' %>
       </div>
-    </div>
 
-  <div class="small-12 columns">
+  <div class="large-12 columns">
     <h4>Delete My Account</h4>
-      <p>Unhappy? <%= link_to "delete my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+    <p>Unhappy? <%= link_to "delete my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
   </div>
-</div>
   <% end %>
-</div>

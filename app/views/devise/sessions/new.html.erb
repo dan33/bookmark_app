@@ -1,13 +1,10 @@
-<div class="row bottom-padding">
-<div class="small-12 columns">
+<div class="large-12 columns">
   <h2>Sign in</h2>
-</div>
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="small-12 columns">
-    <div class="small-4 columns">
+    <div class="large-4 columns">
       <%= f.input :email, label: false, :required => true, :autofocus => true, :input_html => { placeholder: "Email", } %>
       <%= f.input :password, label: false, :required => true, :input_html => { placeholder: "Password" } %>
       <% if devise_mapping.rememberable? -%>
@@ -15,12 +12,11 @@
       <% end %>
       <% f.error :base %>
 
-      <%= f.button :submit, "Sign in", :class => 'btn btn-primary' %>
+      <%= f.button :submit, "Sign in", :class => 'small button' %>
     </div>
-  </div>
 <% end %>
 
-<div class="small-12 columns">
+<div class="large-12 columns">
   <%= render "devise/shared/links" %>
 </div>
 </div>

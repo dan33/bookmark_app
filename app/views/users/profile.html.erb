@@ -1,7 +1,4 @@
-<div class="large-12 columns">
-  <div class="large-4">
-    <%= render 'users/users' %>
-  </div>
+<div class="large-12 columns header">
   <div class="large-4 columns">
     <h2><%= @user.name %></h2>
   </div>
@@ -19,51 +16,49 @@
       </ul>
     </div>
   </div>
+</div>
 <hr>
 
-    <% if @user.groups.empty? %>
+<% if @user.groups.empty? %>
 
-    <div class="row bottom-padding">
-      <div class="large-12">
-        <p class="lead">You haven't joined any groups or posted anything yet.</p>
-        <p><%= link_to 'Join a group now', groups_path, :class => 'button' %></p>
-      </div>
-    </div>
+<div class="large-12">
+  <p class="lead">You haven't joined any groups or posted anything yet.</p>
+  <p><%= link_to 'Join a group now', groups_path, :class => 'button' %></p>
+</div>
 
-    <% else %>
+<% else %>
 
-<div class ="row bottom-padding">
-
-    <div class="large-3 columns">
-      <h4> Groups </h4>
-      <% @groups.each do |group| %>
-      <p><%= link_to group.name, group_path(group) %></p>
+<div class ="large-12 columns">
+  <div class="large-3 columns">
+    <h4> Groups </h4>
+    <% @user.groups.each do |group| %>
+    <p><%= link_to group.name, group_path(group) %></p>
     <% end %>
-    </div>
+  </div>
 
-    <div class="large-3 columns">
-      <h4> Topics </h4>
-      <% @user.topics.each do |topic| %>
-      <p><%= link_to topic.name, group_topic_path(topic.group.slug, topic) %></p>
+  <div class="large-3 columns">
+    <h4> Topics </h4>
+    <% @user.topics.each do |topic| %>
+    <p><%= link_to topic.name, group_topic_path(topic.group.slug, topic) %></p>
     <% end %>
-    </div>
+  </div>
 
-    <div class="large-3 columns">
-      <h4> Links </h4>
-      <% @user.items.each do |item| %>
-      <p class><%= link_to item.title, group_item_path(item.topic.group.slug, item) %></p>
-      <% end %>
-    </div>
+  <div class="large-3 columns">
+    <h4> Links </h4>
+    <% @user.items.each do |item| %>
+    <p class><%= link_to item.title, group_item_path(item.topic.group.slug, item) %></p>
+    <% end %>
+  </div>
 
-    <div class="large-3 columns">
-      <h4> Comments </h4>
-      <% @user.items.each do |item| %>
-      <p><% item.comments.each do |comment| %></p>
+  <div class="large-3 columns">
+    <h4> Comments </h4>
+    <% @user.items.each do |item| %>
+      <% item.comments.each do |comment| %>
       <p class="comments"><%= comment.content %></p>
       <%= link_to item.title, group_item_path(item.topic.group.slug, item), :class => 'tiny button' %>
       <hr>
       <% end %>
-      <% end %>
-    </div>
+    <% end %>
+  </div>
 
-  <% end %>
+<% end %>

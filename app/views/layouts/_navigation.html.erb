@@ -10,7 +10,7 @@
         <li class="divider"></li>
       <li class="<%= 'active' if current_page? '/groups' %>"><%= link_to 'Groups', '/groups' %></li>
       <li class="divider"></li>
-        <li class="has-dropdown"><%= link_to current_user.name, groups_path %>
+        <li class="has-dropdown"><a href="/users/profile"><%= current_user.name %></a>
         <ul class="dropdown"><li class="title back js-generated">
           <li><%= link_to "Settings", edit_user_registration_path %></li>
           <li class="divider"></li>
