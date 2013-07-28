@@ -1,21 +1,21 @@
-<%= render 'groups/header' %>
-
-<div class="row">
-  <div class="large-12 columns">
-  <% @group.topics.each do |topic| %>
-  <div class="large-4 columns">
-    <hr>
-    <ul class="no-bullet">
-      <li><%= link_to topic.name, group_topic_path(@group, topic), :class => 'button tiny' %><em> x<%= topic.items.count %></em></li>
-      <li><p><%= truncate(topic.description, length: 95) %><p></li>
-      </ul>
-  </div>
-  <% end %>
+<div class="large-2 columns">
+  <%= render 'topics' %>
 </div>
 
+<div class="large-10 columns">
+  <%= render 'groups/header' %>
+  <div class="large-12 columns">
+    <% @group.topics.each do |topic| %>
+    <div class="large-4 columns">
+      <ul class="no-bullet">
+        <li><%= link_to topic.name, group_topic_path(@group, topic) %><em> x<%= topic.items.count %></em></li>
+        <li><p><%= truncate(topic.description, length: 95) %><p></li>
+      </ul>
+    </div>
+  <% end %>
+  </div>
   <div class="large-12 columns">
     <hr>
     <%= link_to "Back to #{@group.name}", @group %>
   </div>
-
 </div>

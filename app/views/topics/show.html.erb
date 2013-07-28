@@ -1,31 +1,25 @@
-<%= render 'groups/header' %>
+<div class="large-2 columns">
+  <%= render 'topics' %>
+</div>
 
+<div class="large-10 columns">
+  <%= render 'groups/header' %>
   <div class="large-12 columns">
-    <div class="large-2 columns sidebar">
-    <%= render 'topics' %>
-    </div>
-
-    <div class="large-10 columns">
-      <ul class="inline-list no-bullet">
-        <li><h4><%= @topic.name %> <small> <em><%= link_to 'Edit', edit_group_topic_path(@group, @topic) if @user.groups.include?(@group) %></em></small></h4></li>
+    <h4><%= @topic.name %> <small> <em><%= link_to 'Edit', edit_group_topic_path(@group, @topic) if @user.groups.include?(@group) %></em></small></h4>
+  </div>
+    <% @topic.items.each do |item| %>
+    <div class="large-3 columns box">
+      <ul class="no-bullet">
+        <li><p><%= link_to item.title, item.url %> <small><em><%= link_to 'Edit', edit_group_item_path(@group, item) if @user.groups.include?(@group) %></em></small></p></li>
+        <li><p><%= truncate(item.description, length: 95) %><p></li>
+          <ul class="no-bullet inline-list">
+            <li><%= link_to 'comments', group_item_path(@group, item) %></li>
+            <li><%= link_to item.topic.user.name, group_user_path(@group, item.topic.user), :class => 'tiny button' %></li>
+          </ul>
       </ul>
     </div>
-    <div class="large-10 columns">
-    <% @topic.items.each do |item| %>
-      <div class="large-3 columns box">
-        <ul class="no-bullet">
-          <li><p><%= link_to item.title, item.url %> <small><em><%= link_to 'Edit', edit_group_item_path(@group, item) if @user.groups.include?(@group) %></em></small></p></li>
-          <li><p><%= truncate(item.description, length: 95) %><p></li>
-            <ul class="no-bullet inline-list">
-              <li><%= link_to 'comments', group_item_path(@group, item) %></li>
-              <li><%= link_to item.topic.user.name, group_user_path(@group, item.topic.user), :class => 'tiny button' %></li>
-            </ul>
-          </ul>
-      </div>
     <% end %>
+    <div class="large-12 columns">
+      <%= render 'back' %>
     </div>
-
-
-  <div class="large-12 columns">
-  <%= render 'back' %>
-  </div>
+</div>

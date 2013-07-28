@@ -1,21 +1,21 @@
-<%= render 'groups/header' %>
+<div class="large-2 columns">
+  <%= render 'topics/topics' %>
+</div>
 
-<div class="small-12 columns">
-  <div class="large-2 columns">
-    <%= render 'users/users' %>
-  </div>
-  <div class="large-10 columns">
-  <% @group.users.each do |user| %>
-    <div class="small-3 columns">
-      <ul class="no-bullet">
-        <li><h4><%= link_to user.name, group_user_path(@group, user) %></h4></li>
-        <li>Created <%= pluralize(user.topics.count, 'topic') %></li>
-        <li>Posted <%= pluralize(user.items.count, 'item') %></li>
-        <li>Belongs to <%= pluralize(user.memberships.count, 'group') %></li>
-      </ul>
-    </div>
-  <% end %>
-  <hr>
+<div class="large-10 columns">
+  <%= render 'groups/header' %>
+  <div class="large-12 columns">
+    <% @group.users.each do |user| %>
+      <div class="large-3 columns">
+        <ul class="no-bullet">
+          <li><h4><%= link_to user.name, group_user_path(@group, user) %></h4></li>
+          <li>Created <%= pluralize(user.topics.count, 'topic') %></li>
+          <li>Posted <%= pluralize(user.items.count, 'item') %></li>
+          <li>Belongs to <%= pluralize(user.memberships.count, 'group') %></li>
+        </ul>
+      </div>
+    <% end %>
+    <hr>
     <%= link_to "Back to #{@group.name}", @group %>
   </div>
 </div>

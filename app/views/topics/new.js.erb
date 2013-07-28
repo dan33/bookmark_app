@@ -1,7 +1,7 @@
 $('#new_topic').html('<%=j render(:partial => 'form') %>');
 
 var remove_topic_form = function () {
-  $('form').remove();
+  $('#new_topic').remove();
 };
 
 $('.cancel_topic').click(remove_topic_form);

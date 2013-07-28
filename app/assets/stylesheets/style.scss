@@ -28,15 +28,21 @@ a {
 
 .top-bar {
   margin-bottom: 0px;
+
+  .dropdown {
+    padding-right: 10px;
+  }
+}
+
+.top-bar-section .dropdown li a {
+  padding: 20px 30px 20px 30px;
+}
+
+ul.dropdown {
+  border-radius: 20px;
 }
 
 .panel.callout {
-  background: #f18d05;
-}
-
-.footer {
-  height: 100px;
-  margin: 15px 0 5px 0;
   background: #f18d05;
 }
 
@@ -58,41 +64,50 @@ ul li p {
   border-radius: 0 0 5px 0;
 
   a {
-  color: white;
-  line-height: 2.5em;
-  padding-left: 5px;
-  font-weight: normal;
+    color: #fff;
+    padding-left: 5px;
+    font-weight: normal;
+    font-size: 110%;
+    letter-spacing: 0.0625em;
   }
 
   a:hover {
-  color: #01A4A4;
+    color: #01A4A4;
   }
 
   .button {
-  background: #22262e;
-  box-shadow: none;
-  padding: 5px 10px 5px 10px;
+    background: #22262e;
+    box-shadow: none;
+  }
+
+  .main_button {
+    padding: 15px 30px 15px 30px;
+  }
+
+  .sidebar_top, .sidebar_browse, .sidebar_topics {
+    line-height: 2.5em;
   }
 
   .sidebar_top {
-  text-align: center;
-  margin-right: 20px;
+    margin-right: 20px;
 
-  .main_button {
-    padding: 5px 30px 5px 30px;
+    .small.button {
+      padding: 10px;
+      font-size: 0.9em;
+      font-weight: normal;
+      font-family: inherit;
+    }
   }
-  }
-
 
   .highlighted {
-  background: #01A4A4;
-  width: 130%;
-  margin-left: -20px;
-  padding-left: 20px;
+    background: #01A4A4;
+    width: 130%;
+    margin-left: -20px;
+    padding-left: 20px;
 
-  a:hover {
-  color: #fff;
+    a:hover {
+      color: #fff;
+    }
   }
-}
 }
 

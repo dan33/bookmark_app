@@ -10,9 +10,10 @@
         <li class="divider"></li>
       <li class="<%= 'active' if current_page? '/groups' %>"><%= link_to 'Groups', '/groups' %></li>
       <li class="divider"></li>
-        <li class="has-dropdown"><%= link_to current_user.name, root_path %>
+        <li class="has-dropdown"><%= link_to current_user.name, groups_path %>
         <ul class="dropdown"><li class="title back js-generated">
           <li><%= link_to "Settings", edit_user_registration_path %></li>
+          <li class="divider"></li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         </ul>
       </li>

@@ -35,8 +35,10 @@ module Bookmark
     # config.i18n.default_locale = :de
 
     config.to_prepare do
+      Devise::RegistrationsController.skip_before_filter :get_group
       Devise::SessionsController.skip_before_filter :get_group
     end
+
 
     config.assets.initialize_on_precompile=false
 
