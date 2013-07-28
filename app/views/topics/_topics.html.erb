@@ -1,10 +1,21 @@
-<ul class="no-bullet">
-      <%= link_to 'Create topic', new_group_topic_path(@group), :class => 'button small', :remote => 'true' if @user.groups.include?(@group) %>
-      <li id="new_topic"></li>
-      <li class="<%= 'highlighted' if current_page? group_items_path(@group) %>"><%= link_to 'All links', group_items_path(@group) %></li>
-      <hr>
-      <% @group.topics.order(:name).each do |topic| %>
-      <li class="<%= 'highlighted' if current_page? [@group, topic] %>"><%= link_to topic.name, [@group, topic] %><em> x<%= topic.items.count %></em></li>
-      <hr>
-      <% end %>
-    </ul>
+<nav id="sidebar">
+  <ul class="no-bullet sidebar_top">
+    <li><%= link_to 'Create topic', new_group_topic_path(@group), :class => 'button main_button', :remote => 'true' if @user.groups.include?(@group) %></li>
+    <li id="new_topic"></li>
+    <li><%= link_to 'Add link', new_group_item_path(@group), :class => 'button main_button', :remote => 'true' if @user.groups.include?(@group) %></li>
+    <li id="item_form"></li>
+  </ul>
+
+  <ul class="no-bullet sidebar_browse">
+    <li>Browse</li>
+    <li class="<%= 'highlighted' if current_page? group_users_path(@group) %>"><%= link_to 'Members', group_users_path(@group) %><em> x<%= @group.users.count %></em></li>
+    <li class="<%= 'highlighted' if current_page? group_items_path(@group) %>"><%= link_to 'All links', group_items_path(@group) %> <em> x<%= @group.items.count %></em></li>
+  </ul>
+
+  <ul class="no-bullet sidebar_topics">
+    <li>Topics</li>
+    <% @group.topics.order(:name).each do |topic| %>
+    <li class="<%= 'highlighted' if current_page? [@group, topic] %>"><%= link_to topic.name, [@group, topic] %><em> x<%= topic.items.count %></em></li>
+    <% end %>
+  </ul>
+</nav>

@@ -30,11 +30,6 @@ a {
   margin-bottom: 0px;
 }
 
-.highlighted {
-  font-size: 1.3em;
-  margin-left: 7px;
-}
-
 .panel.callout {
   background: #f18d05;
 }
@@ -53,3 +48,51 @@ ul li p {
 .box {
   min-height: 200px;
 }
+
+#sidebar {
+  background: #1b1d24;
+  color: #656a74;
+  padding: 25px 20px 50px 20px;
+  overflow: hidden;
+  margin-left: -30px;
+  border-radius: 0 0 5px 0;
+
+  a {
+  color: white;
+  line-height: 2.5em;
+  padding-left: 5px;
+  font-weight: normal;
+  }
+
+  a:hover {
+  color: #01A4A4;
+  }
+
+  .button {
+  background: #22262e;
+  box-shadow: none;
+  padding: 5px 10px 5px 10px;
+  }
+
+  .sidebar_top {
+  text-align: center;
+  margin-right: 20px;
+
+  .main_button {
+    padding: 5px 30px 5px 30px;
+  }
+  }
+
+
+  .highlighted {
+  background: #01A4A4;
+  width: 130%;
+  margin-left: -20px;
+  padding-left: 20px;
+
+  a:hover {
+  color: #fff;
+  }
+}
+}
+
