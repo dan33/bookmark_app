@@ -1,7 +1,7 @@
 <nav id="sidebar">
   <ul class="no-bullet sidebar_top">
     <li><%= link_to 'Create topic', new_group_topic_path(@group), :class => 'button main_button', :remote => 'true' if @user.groups.include?(@group) %></li>
-    <li id="new_topic"></li>
+    <li id="topic_form"></li>
     <li><%= link_to 'Add link', new_group_item_path(@group), :class => 'button main_button', :remote => 'true' if @user.groups.include?(@group) %></li>
     <li id="item_form"></li>
   </ul>
