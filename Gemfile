@@ -12,8 +12,10 @@ group :development do
      gem 'devise'
      gem 'friendly_id'
      gem "will_paginate", "~> 3.0.4"
-
 end
+
+gem 'rspec-rails', :group => [:development, :test]
+gem 'simplecov', :group => [:development, :test]
 
 group :production do
   gem 'pg', "~> 0.15.1"
