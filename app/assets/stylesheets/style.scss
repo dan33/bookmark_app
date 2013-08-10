@@ -1,3 +1,7 @@
+* {
+  box-shadow: none;
+}
+
 .sub-nav {
   margin: 0px;
 }
@@ -8,6 +12,11 @@
 
 .comments {
   margin-bottom: 0.2em;
+}
+
+.string.url {
+  padding: 15px;
+  font-size: 1.2em;
 }
 
 a {
@@ -23,7 +32,10 @@ a {
 }
 
 .header {
-  margin-top: 30px;
+  padding-top: 20px;
+  background: #fff;
+  width: 103%;
+  margin-left: -30px;
 }
 
 .top-bar {
@@ -53,6 +65,12 @@ ul li p {
 
 .box {
   min-height: 200px;
+  padding: 30px 20px 0 20px;
+  background: #fff;
+}
+
+.grey {
+  background: #efeff2;
 }
 
 #sidebar {
@@ -77,7 +95,6 @@ ul li p {
 
   .button {
     background: #22262e;
-    box-shadow: none;
   }
 
   .main_button {
@@ -89,7 +106,7 @@ ul li p {
   }
 
   .sidebar_top {
-    margin-right: 20px;
+    margin: 0 20px 0 0;
 
     .small.button {
       padding: 10px;

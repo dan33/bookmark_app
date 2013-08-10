@@ -273,19 +273,19 @@ $anchor-font-color-hover: darken($primary-color, 5%);
 // $form-label-pointer: pointer;
 // $form-label-font-size: emCalc(14px);
 // $form-label-font-weight: 500;
-// $form-label-font-color: lighten(#000, 30%);
+$form-label-font-color: lighten(#000, 10%);
 // $form-label-bottom-margin: emCalc(3px);
 // $input-font-family: inherit;
-// $input-font-color: rgba(0,0,0,0.75);
+$input-font-color: rgba(0,0,0,0.85);
 // $input-font-size: emCalc(14px);
-// $input-bg-color: #fff;
+$input-bg-color: #efeff2;
 // $input-focus-bg-color: darken(#fff, 2%);
 // $input-border-color: darken(#fff, 20%);
 // $input-focus-border-color: darken(#fff, 40%);
 // $input-border-style: solid;
-// $input-border-width: 1px;
+$input-border-width: 0px;
 // $input-disabled-bg: #ddd;
-// $input-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+$input-box-shadow: none;
 // $input-include-glowing-effect: true;
 
 // Fieldset border and spacing.
@@ -332,8 +332,8 @@ $anchor-font-color-hover: darken($primary-color, 5%);
 
 // Padding for buttons.
 
-// $button-tny: emCalc(7px);
-// $button-sml: emCalc(9px);
+$button-tny: emCalc(9px);
+$button-sml: emCalc(11px);
 // $button-med: emCalc(12px);
 // $button-lrg: emCalc(16px);
 
@@ -361,8 +361,11 @@ $anchor-font-color-hover: darken($primary-color, 5%);
 // Button border styles.
 
 $button-border-width: 0px;
-// $button-border-style: solid;
-// $button-border-color: darken($primary-color, $button-function-factor);
+$button-border-style: none;
+$button-border-color: none;
+$shiny-edge-size: 0 0px 0;
+$shiny-edge-color: rgba(#fff, 0);
+$shiny-edge-active-color: rgba(#000, 0);
 
 // Radius used throughout the core.
 
@@ -1183,11 +1186,11 @@ $sub-nav-active-bg: $primary-color;
 
 // Border styles
 
-// $thumb-border-style: solid;
-// $thumb-border-width: 4px;
-// $thumb-border-color: #fff;
-// $thumb-box-shadow: 0 0 0 1px rgba(#000,.2);
-// $thumb-box-shadow-hover: 0 0 6px 1px rgba($primary-color,0.5);
+$thumb-border-style: none;
+$thumb-border-width: 0px;
+$thumb-border-color: none;
+$thumb-box-shadow: 0px;
+$thumb-box-shadow-hover: none;
 
 // Radius and transition speed for thumbs
 

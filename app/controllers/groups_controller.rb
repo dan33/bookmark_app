@@ -15,6 +15,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @item = Item.new
     @user = current_user
   end
 

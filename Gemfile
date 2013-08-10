@@ -7,11 +7,12 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
-     gem 'sqlite3'
-     gem 'simple_form'
-     gem 'devise'
-     gem 'friendly_id'
-     gem "will_paginate", "~> 3.0.4"
+  gem 'sqlite3'
+  gem 'simple_form'
+  gem 'devise'
+  gem 'friendly_id'
+  gem "will_paginate", "~> 3.0.4"
+  gem 'metainspector'
 end
 
 gem 'rspec-rails', :group => [:development, :test]
@@ -24,6 +25,7 @@ group :production do
   gem 'simple_form'
   gem 'friendly_id'
   gem "will_paginate", "~> 3.0.4"
+  gem 'metainspector'
 end
 
 group :assets do

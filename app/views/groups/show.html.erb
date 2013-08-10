@@ -4,13 +4,13 @@
 
   <div class="large-10 columns">
     <%= render 'groups/header' %>
-    <div class="large-12 columns">
-      <ul class="no-bullet inline-list">
-        <li><h4> All links </h4></li>
-      </ul>
-    </div>
+    <div class="large-12 columns grey">
+
+          <h4> All links </h4>
+
     <% @group.items.each do |item| %>
-      <div class="large-3 columns box">
+      <div class="large-3 columns">
+        <div class="box">
         <ul class="no-bullet">
           <li><p><%= link_to item.title, item.url %> <small><em><%= link_to 'Edit', edit_group_item_path(@group, item) if @user.groups.include?(@group) %></em></small></p></li>
           <li><p><%= truncate(item.description, length: 95) %><p></li>
@@ -19,12 +19,15 @@
               <li><%= link_to item.topic.user.name, group_user_path(@group, item.topic.user), :class => 'tiny button' %></li>
             </ul>
           </ul>
+        </div>
       </div>
     <% end %>
+  </div>
+</div>
 
 
 <div class="row">
-  <div class="small-12 columns">
+  <div class="large-12 columns">
     <hr>
     <%= link_to "Back to #{@group.name}", @group %>
   </div>
