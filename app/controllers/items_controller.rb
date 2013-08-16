@@ -17,17 +17,17 @@ class ItemsController < ApplicationController
     @comment = Comment.new
   end
 
-  def new
-    @item = Item.new
-  end
+  # def new
+  #   @new_item = Item.new
+  # end
 
   def edit
     @item = Item.find(params[:id])
   end
 
   def create
-    @item = Item.new(params[:item])
-      if @item.save
+    @item_new = Item.new(params[:item])
+      if @item_new.save
         redirect_to [@group]
       else
         render :new

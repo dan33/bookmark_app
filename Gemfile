@@ -13,6 +13,8 @@ group :development do
   gem 'friendly_id'
   gem "will_paginate", "~> 3.0.4"
   gem 'metainspector'
+  gem 'quiet_assets'
+  gem 'thin'
 end
 
 gem 'rspec-rails', :group => [:development, :test]
@@ -20,6 +22,7 @@ gem 'simplecov', :group => [:development, :test]
 
 group :production do
   gem 'pg', "~> 0.15.1"
+
   gem 'devise'
   gem 'thin'
   gem 'simple_form'

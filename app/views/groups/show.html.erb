@@ -6,7 +6,7 @@
     <%= render 'groups/header' %>
     <div class="large-12 columns grey">
 
-          <h4> All links </h4>
+    <h4> All links </h4>
 
     <% @group.items.each do |item| %>
       <div class="large-3 columns">
@@ -22,13 +22,5 @@
         </div>
       </div>
     <% end %>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="large-12 columns">
-    <hr>
-    <%= link_to "Back to #{@group.name}", @group %>
   </div>
 </div>

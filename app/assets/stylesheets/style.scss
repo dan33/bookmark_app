@@ -1,7 +1,3 @@
-* {
-  box-shadow: none;
-}
-
 .sub-nav {
   margin: 0px;
 }
@@ -64,7 +60,7 @@ ul li p {
 }
 
 .box {
-  min-height: 200px;
+  min-height: 260px;
   padding: 30px 20px 0 20px;
   background: #fff;
 }
@@ -75,6 +71,7 @@ ul li p {
 
 #sidebar {
   background: #1b1d24;
+  height: 2000px;
   color: #656a74;
   padding: 25px 20px 50px 20px;
   overflow: hidden;
@@ -96,6 +93,10 @@ ul li p {
   .button {
     background: #22262e;
   }
+
+.author_comments {
+  float: bottom;
+}
 
   .main_button {
     padding: 15px 30px 15px 30px;

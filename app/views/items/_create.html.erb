@@ -1,0 +1,8 @@
+<%= simple_form_for [@group, @item_new] do |f| %>
+  <div class="large-9 columns" %>
+    <%= f.input :url, label: false, :required => true, :input_html => { placeholder: "URL", :maxlength => 450 } %>
+  </div>
+  <div class="large-3 columns" %>
+    <%= f.association :topic, :collection => @group.topics, label: false, :required => true %>
+  </div>
+<% end %>

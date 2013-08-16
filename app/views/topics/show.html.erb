@@ -8,7 +8,8 @@
     <h4><%= @topic.name %> <small> <em><%= link_to 'Edit', edit_group_topic_path(@group, @topic) if @user.groups.include?(@group) %></em></small></h4>
   </div>
     <% @topic.items.each do |item| %>
-    <div class="large-3 columns box">
+    <div class="large-3 columns">
+      <div class="box">
       <ul class="no-bullet">
         <li><p><%= link_to item.title, item.url %> <small><em><%= link_to 'Edit', edit_group_item_path(@group, item) if @user.groups.include?(@group) %></em></small></p></li>
         <li><p><%= truncate(item.description, length: 95) %><p></li>
@@ -17,6 +18,7 @@
             <li><%= link_to item.topic.user.name, group_user_path(@group, item.topic.user), :class => 'tiny button' %></li>
           </ul>
       </ul>
+      </div>
     </div>
     <% end %>
     <div class="large-12 columns">

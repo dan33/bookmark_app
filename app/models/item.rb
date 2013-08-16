@@ -28,7 +28,7 @@ class Item < ActiveRecord::Base
 
   def get_meta_info
     page = MetaInspector.new(self.url)
-      if page.present?
+      if page.present? && !self.title && !self.description
         self.title = page.title
         self.description = page.description
       end
