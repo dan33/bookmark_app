@@ -10,7 +10,9 @@ class GroupsController < ApplicationController
       @topics = group.topics
       @items = group.items
       @topics = @topics
+
     end
+    render :layout => 'groups_index'
   end
 
   def show

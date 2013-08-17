@@ -20,18 +20,23 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+  <body class="grey <%= 'item_show' if current_page? group_item_path %>">
     <%= render 'layouts/navigation' %>
 
-    <div class="large-12 columns grey">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, id: "flash_#{name}" %>
-        <% end %>
+    <div class="large-2 columns">
+    <%= render 'topics/topics' %>
+  </div>
 
-      <%= yield %>
+  <div class="large-10 columns">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
+    <% end %>
 
-    </div>
+    <%= render 'groups/header' %>
+    <%= yield %>
+  </div>
 
     <%= javascript_include_tag "application" %>
   </body>
 </html>
+
