@@ -7,16 +7,15 @@ class UsersController < ApplicationController
     @comments = Comment.order('created_at DESC limit 15')
     @users = User.order('created_at DESC limit 15')
     @user = current_user
-    @item = Item.new
   end
 
   def show
     @user = User.find(params[:id])
-    @item = Item.new
   end
 
   def profile
     @user = current_user
+    render :layout => 'groups_index'
   end
 
 end

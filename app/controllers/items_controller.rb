@@ -17,10 +17,6 @@ class ItemsController < ApplicationController
     @comment = Comment.new
   end
 
-  # def new
-  #   @new_item = Item.new
-  # end
-
   def edit
     @item = Item.find(params[:id])
   end

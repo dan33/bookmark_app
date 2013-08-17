@@ -1,13 +1,10 @@
-<div class="large-12 columns">
+<div class="large-8 columns item_show">
   <h5><%= link_to @item.title, @item.url %> <small><em> <%= link_to 'Edit', edit_group_item_path(@group, @item) if @user.groups.include?(@group) %></em></small></h5>
   <p><%= @item.description %></p>
-</div>
 
-<div class="large-12 columns">
   <h6>Comments</h6>
   <%= render "comments/comments" %>
   <p><%= render "comments/form" if @user.groups.include?(@group) %></p>
-</div>
 
 <div class="large-12 columns">
   <%= render 'back' %>

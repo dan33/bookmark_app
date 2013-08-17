@@ -2,7 +2,6 @@ class TopicsController < ApplicationController
   before_filter :check_if_member, :except => [:index, :show]
 
   def index
-    @item = Item.new
     @topics = Topic.order('created_at DESC limit 15')
     @items = Item.joins(:topic).order('created_at DESC limit 12')
     @comments = Comment.order('created_at DESC limit 15')
@@ -11,7 +10,6 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @item = Item.new
     @topic = Topic.find(params[:id])
     @user = current_user
   end

@@ -1,20 +1,13 @@
-<div class="large-2 columns">
-  <%= render 'topics' %>
+<div class="large-5 columns">
+  <h4>Edit Topic</h4>
+  <%= render 'form' %>
+  <p><%= link_to 'Delete', [@group, @topic], method: :delete, data: { confirm: 'Are you sure you want to delete this topic?' } if @topic.items.empty? %></p>
 </div>
 
-<div class="large-10 columns">
-  <%= render 'groups/header' %>
-  <div class="large-12 columns">
-    <div class="large-5 columns">
-      <h4>Edit Topic</h4>
-      <%= render 'form' %>
-      <p><%= link_to 'Delete', [@group, @topic], method: :delete, data: { confirm: 'Are you sure you want to delete this topic?' } if @topic.items.empty? %></p>
-    </div>
-  </div>
-  <div class="large-12 columns">
-    <%= render 'back' %>
-  </div>
+<div class="large-12 columns">
+  <%= render 'back' %>
 </div>
+
 
 
 
