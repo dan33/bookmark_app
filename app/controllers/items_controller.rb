@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
       if @item_new.save
         redirect_to [@group]
       else
-        render :new
+        redirect_to [@group, @item]
       end
   end
 
