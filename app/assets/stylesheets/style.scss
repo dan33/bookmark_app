@@ -78,11 +78,14 @@ ul li p {
   background: #fff;
   margin: 5% 15% 0 15%;
   padding: 5%;
+  .string.url {
+  font-size: 0.875em;
+  }
 }
 
 #sidebar {
   background: #1b1d24;
-  height: 2000px;
+  height: 100%;
   color: #656a74;
   padding: 25px 20px 50px 20px;
   overflow: hidden;
@@ -110,7 +113,7 @@ ul li p {
 }
 
   .main_button {
-    padding: 15px 30px 15px 30px;
+    padding: 15px 20px 15px 20px;
   }
 
   .sidebar_top, .sidebar_browse, .sidebar_topics {
@@ -122,7 +125,7 @@ ul li p {
 
     .small.button {
       padding: 10px;
-      font-size: 0.9em;
+      font-size: 0.8em;
       font-weight: normal;
       font-family: inherit;
     }

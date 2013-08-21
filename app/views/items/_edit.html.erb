@@ -1,10 +1,10 @@
 <%= simple_form_for [@group, @item] do |f| %>
 <%= f.error_notification %>
-      <%= f.input :title, label: false, :input_html => { placeholder: "Title", :min => 10, :maxlength => 450 } %>
-      <%= f.input :url, label: false, :required => true, :input_html => { placeholder: "URL", :maxlength => 450 } %>
-      <%= f.input :description, label: false, :as => :text, :input_html => { placeholder: "Description", :rows => 3, :maxlength => 450 } %>
-      <%= f.association :topic, :collection => @group.topics, label: false, :required => true %>
-      <% f.error :base %>
-      <%= f.submit nil, :class => 'small button'%>
-      <%= link_to 'Cancel', group_path(@group), :remote => true, :class => 'cancel_item small button' %>
+  <%= f.input :title, label: false, :input_html => { placeholder: "Title", :min => 10, :maxlength => 450 } %>
+  <%= f.input :url, label: false, :required => true, :input_html => { placeholder: "URL", :maxlength => 450 } %>
+  <%= f.input :description, label: false, :as => :text, :input_html => { placeholder: "Description", :rows => 3, :maxlength => 450 } %>
+  <%= f.association :topic, :collection => @group.topics, label: false, :required => true %>
+  <% f.error :base %>
+  <%= f.submit nil, :class => 'small button'%>
+  <%= link_to 'Cancel', group_path(@group), :remote => true, :class => 'cancel_item small button' %>
 <% end %>
