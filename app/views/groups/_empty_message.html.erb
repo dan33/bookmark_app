@@ -1,5 +1,5 @@
 <div class="large-12 columns">
-    <h3> Nothing posted yet </h3>
-    <p class="lead"> No one has posted anything in this group yet</p>
-    <%= link_to 'Join group', memberships_path(:user_id => @user, :group_id => @group), :method => :post, :class => 'button' unless @user.groups.include?(@group) %>
+  <h3> Nothing posted yet </h3>
+  <p class="lead"> No one has posted anything in this group yet</p>
+  <%= link_to 'Join group', memberships_path(:user_id => @user, :group_id => @group), :method => :post, :class => 'button' unless @user.groups.include?(@group) %>
 </div>

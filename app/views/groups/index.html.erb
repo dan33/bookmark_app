@@ -16,8 +16,7 @@
     <div class="large-6 columns">
       <div class="large-12 columns panel">
         <div class="large-7 columns">
-        <h4><%= link_to group.name, group_path(group) %></h4>
-
+          <h4><%= link_to group.name, group_path(group) %></h4>
         </div>
         <div class="large-5 columns">
           <h6>Topics</h6>
@@ -29,14 +28,15 @@
       </div>
 
       <% group.items.reverse.take(4).each do |item| %>
-      <div class="large-7 columns">
-        <p><%= link_to item.title, [group, item] %></p>
-      </div>
-      <div class="large-5 columns">
-        <p><%= link_to item.topic.name, [group, item.topic], :class => 'tiny button' %></p>
-      </div>
-    <% end %>
-<hr>
+        <div class="large-7 columns">
+          <p><%= link_to item.title, [group, item] %></p>
+        </div>
+        <div class="large-5 columns">
+          <p><%= link_to item.topic.name, [group, item.topic], :class => 'tiny button' %></p>
+        </div>
+      <% end %>
+      <hr>
+
       <div class="large-12 columns">
         <ul class="no-bullet inline-list">
         <div class="large-3 columns">
@@ -48,14 +48,15 @@
         <div class="large-3 columns">
           <li><%= link_to 'Members', group_users_path(group) %> <span class="round label"><%= group.users.count %></span></li>
         </div>
+
         <% unless group.users.include?(current_user) %>
-        <div class="large-3 columns">
-          <li><%= link_to 'Join group', memberships_path(:user_id => @user, :group_id => group), :method => :post, :class => 'small button secondary' %></li>
-        </div>
+          <div class="large-3 columns">
+            <li><%= link_to 'Join group', memberships_path(:user_id => @user, :group_id => group), :method => :post, :class => 'small button secondary' %></li>
+          </div>
         <% end %>
         </ul>
       </div>
     </div>
   </div>
-    <% end %>
+  <% end %>
 </div>

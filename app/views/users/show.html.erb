@@ -1,4 +1,3 @@
-
 <div class="large-12 columns">
   <div class="large-8 columns">
     <h4><%= @user.name %></h4>
@@ -18,25 +17,26 @@
 </div>
 
 <div class="large-12 columns">
-<div class="large-4 columns">
-  <h4> Links </h4>
-  <% @user.items.each do |item| %>
-  <p class><%= link_to item.title, group_item_path(item.topic.group.slug, item) %></p>
-  <% end %>
-</div>
+  <div class="large-4 columns">
+    <h4> Links </h4>
+    <% @user.items.each do |item| %>
+    <p class><%= link_to item.title, group_item_path(item.topic.group.slug, item) %></p>
+    <% end %>
+  </div>
 
-<div class="large-3 columns">
-  <h4> Topics </h4>
-  <% @user.topics.each do |topic| %>
-  <p><%= link_to topic.name, group_topic_path(topic.group.slug, topic) %></p>
-<% end %>
-</div>
-
-<div class="large-5 columns">
-  <h4> Comments </h4>
-  <% @user.comments.each do |comment| %>
-  <p class="comments"><%= comment.content %></p>
-  <%= link_to comment.commentable.topic.name, group_item_path(comment.commentable.topic.group.slug, comment.commentable), :class => 'tiny button' %>
-  <hr>
+  <div class="large-3 columns">
+    <h4> Topics </h4>
+    <% @user.topics.each do |topic| %>
+    <p><%= link_to topic.name, group_topic_path(topic.group.slug, topic) %></p>
   <% end %>
+  </div>
+
+  <div class="large-5 columns">
+    <h4> Comments </h4>
+    <% @user.comments.each do |comment| %>
+    <p class="comments"><%= comment.content %></p>
+    <%= link_to comment.commentable.topic.name, group_item_path(comment.commentable.topic.group.slug, comment.commentable), :class => 'tiny button' %>
+    <hr>
+    <% end %>
+  </div>
 </div>

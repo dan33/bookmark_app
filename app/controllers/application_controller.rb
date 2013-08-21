@@ -4,12 +4,11 @@ class ApplicationController < ActionController::Base
   before_filter :get_group
   before_filter :item_new
 
-def get_group
-  @group = Group.find(params[:group_id])
-end
+  def get_group
+    @group = Group.find(params[:group_id])
+  end
 
-def item_new
-  @item_new = Item.new
-end
-
+  def item_new
+    @item_new = Item.new
+  end
 end

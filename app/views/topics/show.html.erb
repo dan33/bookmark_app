@@ -6,10 +6,10 @@
     <ul class="no-bullet">
       <li><p><%= link_to item.title, item.url %> <small><em><%= link_to 'Edit', edit_group_item_path(@group, item) if @user.groups.include?(@group) %></em></small></p></li>
       <li><p><%= truncate(item.description, length: 95) %><p></li>
-        <ul class="no-bullet inline-list">
-          <li><%= link_to 'comments', group_item_path(@group, item) %></li>
-          <li><%= link_to item.topic.user.name, group_user_path(@group, item.topic.user), :class => 'tiny button' %></li>
-        </ul>
+      <ul class="no-bullet inline-list">
+        <li><%= link_to 'comments', group_item_path(@group, item) %></li>
+        <li><%= link_to item.topic.user.name, group_user_path(@group, item.topic.user), :class => 'tiny button' %></li>
+      </ul>
     </ul>
     </div>
   </div>

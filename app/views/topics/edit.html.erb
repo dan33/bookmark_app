@@ -1,4 +1,4 @@
-<div class="large-5 columns">
+<div class="large-8 columns item_show">
   <h4>Edit Topic</h4>
   <%= render 'form' %>
   <p><%= link_to 'Delete', [@group, @topic], method: :delete, data: { confirm: 'Are you sure you want to delete this topic?' } if @topic.items.empty? %></p>
@@ -7,7 +7,3 @@
 <div class="large-12 columns">
   <%= render 'back' %>
 </div>
-
-
-
-

@@ -24,7 +24,7 @@ class Item < ActiveRecord::Base
 
   #validates_presence_of :title, :url, :description, :message => "You can't create a link with nothing. "
   #validates_length_of :title, :url, :description, :within => 2..450, :too_long => "Geez, are you writing an essay? Write less.", :too_short => "Cmon, you need to write more than that!"
-  # validates_uniqueness_of :url, :message => "Someone has already added this URL."
+  validates_uniqueness_of :url, :message => "Someone has already added this URL."
 
   def get_meta_info
     page = MetaInspector.new(self.url, :allow_redirections => :all)
