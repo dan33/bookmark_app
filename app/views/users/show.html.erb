@@ -1,49 +1,42 @@
-<div class="large-2 columns">
-  <%= render 'topics/topics' %>
+
+<div class="large-12 columns">
+  <div class="large-8 columns">
+    <h4><%= @user.name %></h4>
+  </div>
+  <div class="large-2 columns">
+    <ul class="no-bullet">
+      <li><span class="label">Created <%= pluralize(@user.topics.count, 'topic') %></span></li>
+      <li><span class="label">Posted <%= pluralize(@user.items.count, 'link') %></span></li>
+    </ul>
+  </div>
+  <div class="large-2 columns">
+    <ul class="no-bullet">
+      <li><span class="label">Posted <%= pluralize(@user.comments.count, 'comment') %></span></li>
+      <li><span class="label">Belongs to <%= pluralize(@user.memberships.count, 'group') %></span></li>
+    </ul>
+  </div>
 </div>
 
-<div class="large-10 columns">
-  <%= render 'groups/header' %>
-    <div class="large-12 columns">
-      <div class="large-8 columns">
-        <h4><%= @user.name %></h4>
-      </div>
-      <div class="large-2 columns">
-        <ul class="no-bullet">
-          <li><span class="label">Created <%= pluralize(@user.topics.count, 'topic') %></span></li>
-          <li><span class="label">Posted <%= pluralize(@user.items.count, 'link') %></span></li>
-        </ul>
-      </div>
-      <div class="large-2 columns">
-        <ul class="no-bullet">
-          <li><span class="label">Posted <%= pluralize(@user.comments.count, 'comment') %></span></li>
-          <li><span class="label">Belongs to <%= pluralize(@user.memberships.count, 'group') %></span></li>
-        </ul>
-      </div>
-    </div>
+<div class="large-12 columns">
+<div class="large-4 columns">
+  <h4> Links </h4>
+  <% @user.items.each do |item| %>
+  <p class><%= link_to item.title, group_item_path(item.topic.group.slug, item) %></p>
+  <% end %>
+</div>
 
-  <div class="large-12 columns">
-    <div class="large-4 columns">
-      <h4> Links </h4>
-      <% @user.items.each do |item| %>
-      <p class><%= link_to item.title, group_item_path(item.topic.group.slug, item) %></p>
-      <% end %>
-    </div>
+<div class="large-3 columns">
+  <h4> Topics </h4>
+  <% @user.topics.each do |topic| %>
+  <p><%= link_to topic.name, group_topic_path(topic.group.slug, topic) %></p>
+<% end %>
+</div>
 
-    <div class="large-3 columns">
-      <h4> Topics </h4>
-      <% @user.topics.each do |topic| %>
-      <p><%= link_to topic.name, group_topic_path(topic.group.slug, topic) %></p>
-    <% end %>
-    </div>
-
-    <div class="large-5 columns">
-      <h4> Comments </h4>
-      <% @user.comments.each do |comment| %>
-      <p class="comments"><%= comment.content %></p>
-      <%= link_to comment.commentable.topic.name, group_item_path(comment.commentable.topic.group.slug, comment.commentable), :class => 'tiny button' %>
-      <hr>
-      <% end %>
-    </div>
-  </div>
+<div class="large-5 columns">
+  <h4> Comments </h4>
+  <% @user.comments.each do |comment| %>
+  <p class="comments"><%= comment.content %></p>
+  <%= link_to comment.commentable.topic.name, group_item_path(comment.commentable.topic.group.slug, comment.commentable), :class => 'tiny button' %>
+  <hr>
+  <% end %>
 </div>
