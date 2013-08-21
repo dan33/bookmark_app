@@ -29,8 +29,8 @@ class Item < ActiveRecord::Base
   def get_meta_info
     page = MetaInspector.new(self.url, :allow_redirections => :all)
       if page.present? && !self.title && !self.description
-        self.title = page.title
-        self.description = page.description
+        self.title = page.title[0..250]
+        self.description = page.description[0..250]
       end
   end
 
