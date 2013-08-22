@@ -11,4 +11,6 @@ class ApplicationController < ActionController::Base
   def item_new
     @item_new = Item.new
   end
+
+  layout Proc.new { |controller| controller.devise_controller? ? 'groups_index' : 'application' }
 end
