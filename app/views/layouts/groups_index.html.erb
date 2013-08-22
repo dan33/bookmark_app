@@ -24,9 +24,7 @@
     <%= render 'layouts/navigation' %>
 
     <div class="large-12 columns">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, id: "flash_#{name}" %>
-        <% end %>
+      <%= display_flash_messages %>
       <%= yield %>
 
     </div>

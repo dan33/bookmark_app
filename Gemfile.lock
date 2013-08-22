@@ -50,6 +50,9 @@ GEM
     eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    foundation_rails_helper (0.4)
+      actionpack (>= 3.0)
+      railties (>= 3.0)
     friendly_id (4.0.9)
     hashie (2.0.5)
     hike (1.2.3)
@@ -160,6 +163,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
+  foundation_rails_helper
   friendly_id
   jquery-rails
   metainspector

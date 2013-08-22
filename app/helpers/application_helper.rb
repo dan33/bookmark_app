@@ -16,4 +16,6 @@ module ApplicationHelper
     @group.users.any?{|user| user.id == current_user.id}
   end
 
+  include FoundationRailsHelper::FlashHelper
+
 end
